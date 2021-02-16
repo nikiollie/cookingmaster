@@ -4,8 +4,15 @@
   "description": "Cooking Master App",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "errorhandler": "*",
     "express": "^4.17.1",
-    "express3-handlebars": "*"
+    "express-session": "*",
+    "express3-handlebars": "*",
+    "method-override": "*",
+    "morgan": "^1.10.0",
+    "multer": "0.1.*",
+    "serve-favicon": "2"
   },
   "devDependencies": {},
   "scripts": {

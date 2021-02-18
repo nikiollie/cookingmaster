@@ -1,3 +1,60 @@
 body {
-    color: lightblue;
+    color:black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.center {
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%; */
+    text-align: center;
+
+    display: block;
+    position: fixed;
+    top: 10%;
+    left: 50%; 
+    /* margin-top: -50px; */
+    margin-left: -100px;
+  }
+  
+.button-center {
+    display: block;
+    position: fixed;
+    text-align: center;
+    top: 60%;
+    left: 50%; 
+}
+
+.button {
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: black; 
+    color: white;
+  }
+
+#accountpic {
+    width:50px;
+    height: 50px;
+}
+
+#account {
+    position: relative;
+}
+#account input {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#home {
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }

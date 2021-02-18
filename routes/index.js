@@ -13,3 +13,7 @@ exports.newrecipe = function(req, res){
 exports.savedrecipes = function(req, res){
     res.render('savedrecipes');
 };
+
+exports.account = function(req, res){
+    res.render('account');
+};

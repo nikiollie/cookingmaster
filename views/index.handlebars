@@ -5,19 +5,27 @@
 	<title>Cooking Master</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">  -->
 	<link href="/css/styles.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 
 <body>
 	<div>
-        <h1>Cooking Master</h1>
-        <a href="newrecipe">
-            <button value="NewRecipe">New Recipe</button>
-        </a>
+        <div class = "d-flex justify-content-center align-items-center" style = "flex-direction: column">
+            <h1 style = "font-family: 'Satisfy', cursive;color:lightblue">Cooking Master</h1>
+        </div>
+        <div class = "d-flex justify-content-center align-items-center" style = "flex-direction: column">
+            <a style = "font-family: 'Patrick Hand';"href="newrecipe">
+                <button value="NewRecipe" style="background-color:#00E500">New Recipe</button>
+            </a>
+        </div>
         <br>
-        <a href="savedrecipes">
-            <button value="SavedRecipes">Saved Recipes</button>
-        </a>
+        <div class = "d-flex justify-content-center align-items-cente" style = "position:bottom">
+            <a class = "savedrecipes" style = "font-family: 'Patrick Hand'" href="savedrecipes">
+            <button value="SavedRecipes"style="background-color:#00E500">Saved Recipes</button>
+            </a>
+        </div>
     </div>
 
 

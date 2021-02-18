@@ -11,29 +11,39 @@
 </head>
 
 <body>
-  <div class = "d-flex justify-content-center">
-	<div class = "box">
-        <h1 style = "font-family: 'Satisfy', cursive;color:lightblue">New Recipe</h1>
-        <form action="">
-            <label style = "font-family: 'Patrick Hand';"href="newrecipe">What would you like to cook:</label><br>
-            <input type="text" id="dishName"><br>
-            <label style = "font-family: 'Patrick Hand';"href="newrecipe">Serving Size:</label><br>
-            <input type="number" id="servingSize"><br><br>
-            <label style = "font-family: 'Patrick Hand';"href="newrecipe">(Optional) Any specific ingredients? If multiple, separate with comma:</label><br>
-            <input type="text" id="specialIngredients"><br><br>
-            <!-- <input type="submit" value="Find Recipe!"> -->
-          </form> 
-          <div class = "buttons">
-          <a href="/" >
-            <button style="font-family: 'Patrick Hand';background-color:#00E500;" value="home">Home</button>
-          </a>
-          </div>
-          <div class = "buttons">
-          <a href="recipe">
-            <button style="font-family: 'Patrick Hand';background-color:#00E500" value="recipe">Find Recipe</button>
+  <div id="account">
+        <a href="account">
+            <input type="image" src="/images/account.png" alt="Account" id="accountpic">
         </a>
-      </div>
-      </div>
+  </div>
+  <div class = "d-flex justify-content-center">
+    <div class = "box">
+          <h1 style = "font-family: 'Satisfy', cursive;color:lightblue">New Recipe</h1>
+          <form action="">
+              <label style = "font-family: 'Patrick Hand';"href="newrecipe">What would you like to cook:</label><br>
+              <input type="text" id="dishName"><br>
+              <label style = "font-family: 'Patrick Hand';"href="newrecipe">Serving Size:</label><br>
+              <input type="number" id="servingSize"><br><br>
+              <label style = "font-family: 'Patrick Hand';"href="newrecipe">(Optional) Any specific ingredients? If multiple, separate with comma:</label><br>
+              <input type="text" id="specialIngredients"><br><br>
+              <!-- <input type="submit" value="Find Recipe!"> -->
+            </form> 
+            <div class = "buttons">
+              <a href="/" >
+                <button style="font-family: 'Patrick Hand';background-color:#00E500;" value="home">Home</button>
+              </a>
+            </div>
+            <div class = "buttons">
+              <a href="recipe">
+                <button style="font-family: 'Patrick Hand';background-color:#00E500" value="recipe">Find Recipe</button>
+              </a>
+            </div>
     </div>
+  </div>
+  <div id="home">
+    <a href="index">
+      <input type="image" src="/images/home_logo.png" alt="Home">
+    </a>
+  </div>
 </body>
 </html>

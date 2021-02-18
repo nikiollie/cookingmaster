@@ -24,7 +24,10 @@ body {
 .center {
     flex-direction: column;
   }
-  
+
+.input {
+    font-family: 'Patrick Hand'; 
+}
 
 .button {
     font-family: 'Patrick Hand';

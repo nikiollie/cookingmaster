@@ -59,6 +59,8 @@ app.get('/index', index.view);
 app.get('/newrecipe', index.newrecipe);
 app.get('/savedrecipes', index.savedrecipes);
 app.get('/recipe', index.recipe);
+app.get('/account', index.account);
+
 
 // Example route
 // app.get('/users', user.list);

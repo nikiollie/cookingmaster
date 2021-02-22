@@ -54,12 +54,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // }
 
 // Add routes here
-app.get('/', index.view);
-app.get('/index', index.view);
+app.get('/', index.login);
+app.get('/index', index.index);
 app.get('/newrecipe', index.newrecipe);
 app.get('/savedrecipes', index.savedrecipes);
 app.get('/recipe', index.recipe);
 app.get('/account', index.account);
+app.get('/createaccount', index.createaccount);
+app.get('/forgotpassword', index.forgotpassword);
 
 
 // Example route

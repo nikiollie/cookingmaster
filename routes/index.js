@@ -2,7 +2,19 @@
  * GET home page.
  */
 
-exports.view = function(req, res){
+exports.login = function(req, res){
+    res.render('login');
+};
+
+exports.forgotpassword = function(req, res){
+    res.render('forgot');
+};
+
+exports.createaccount = function(req, res){
+    res.render('create');
+};
+
+exports.index = function(req, res){
     res.render('index');
 };
 

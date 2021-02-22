@@ -58,6 +58,7 @@ app.get('/', index.login);
 app.get('/index', index.index);
 app.get('/newrecipe', index.newrecipe);
 app.get('/savedrecipes', index.savedrecipes);
+app.get('/recipe', index.recipe);
 app.get('/account', index.account);
 app.get('/createaccount', index.createaccount);
 app.get('/forgotpassword', index.forgotpassword);

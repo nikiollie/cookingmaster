@@ -1,5 +1,20 @@
+
 body {
     color:black;
+}
+
+.box {
+	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	width: 200px;
+  	align-content: center;
+
+}
+
+.buttons {
+	align-self: center;
+
 }
 
 .title {
@@ -9,7 +24,10 @@ body {
 .center {
     flex-direction: column;
   }
-  
+
+.input {
+    font-family: 'Patrick Hand'; 
+}
 
 .button {
     font-family: 'Patrick Hand';
@@ -72,3 +90,4 @@ body {
    /* -moz-box-shadow:    3px 3px 5px 6px #ccc;   Firefox 3.5 - 3.6 */
     box-shadow:         3px 3px 5px 6px #ccc;    
 }
+

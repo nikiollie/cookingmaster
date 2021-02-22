@@ -26,6 +26,12 @@ exports.savedrecipes = function(req, res){
     res.render('savedrecipes');
 };
 
+
+exports.recipe = function(req, res){
+    res.render('recipe');
+};
+
 exports.account = function(req, res){
     res.render('account');
 };
+

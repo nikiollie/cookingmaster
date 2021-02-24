@@ -49,16 +49,23 @@ def findRecipe(dish, optional):
         ingredients += "\n"
 
     orig_serving = driver.find_element_by_xpath("//*[@id='ar-calvera-app']/section[1]/div[1]/div[1]").get_attribute('data-init-servings-size')
-    # ing_list = driver.find_element_by_xpath("//*[@id='ar-calvera-app']/section[1]/fieldset/ul")
-    # ing = ing_list.find_elements_by_tag_name("li")
-    # for item in ing:
-    #     ingredients += item.span.span.text
-    # ingredients = ing.text()
+
+
+    #instructions!
+    instructions = ""
+    instr_list = driver.find_elements_by_class_name("instructions-section-item")
+    stepnum = 1
+    for instr in instr_list:
+        instructions += "Step " + str(stepnum) + "\n"
+        paragraph = instr.find_element_by_xpath(".//div[@class='section-body']/div[@class='paragraph']/p").text
+        instructions += paragraph + "\n"
+        stepnum +=1
+
     driver.close()
 
 
     # ingredients="tomato"
-    instructions="make"
+    # instructions="make"
     return ingredients, instructions, orig_serving
 
 def getCorrectServing(ingredients, orig_serving, serving):

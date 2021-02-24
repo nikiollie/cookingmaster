@@ -9,17 +9,21 @@ import sys, time, os
 # assert "No results found." not in driver.page_source
 # driver.close()
 
-os.environ["GOOGLE_CHROME_BIN"] = "/usr/bin/google-chrome"
-os.environ["CHROMEDRIVER_PATH"] = "/usr/local/bin/chromedriver"
+# os.environ["GOOGLE_CHROME_BIN"] = "/usr/bin/google-chrome"
+# os.environ["CHROMEDRIVER_PATH"] = "/usr/local/bin/chromedriver"
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.binary_location = GOOGLE_CHROME_PATH
+# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 def findRecipe(dish, optional):
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
     dish = dish.replace(" ", "%20")
     if optional != "none":
@@ -61,7 +65,7 @@ def findRecipe(dish, optional):
     return ingredients, instructions, orig_serving
 
 def getCorrectServing(ingredients, orig_serving, serving):
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
     driver.get("https://mykitchencalculator.com/recipeconverter.html")
     # clear = driver.find_element_by_xpath("//*[@id='clearListButton']")
     # clear.click()

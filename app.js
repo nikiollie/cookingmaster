@@ -8,8 +8,9 @@ var multer = require('multer');
 var errorHandler = require('errorhandler');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
-
+var handlebars = require('express3-handlebars');
+var browser = require('selenium-webdriver');
+var chrome = require('selenium-webdriver/chrome');
 var index = require('./routes/index');
 
 

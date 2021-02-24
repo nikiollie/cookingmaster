@@ -13,6 +13,7 @@
     "method-override": "*",
     "morgan": "^1.10.0",
     "multer": "0.1.*",
+    "selenium-webdriver": "^4.0.0-beta.1",
     "serve-favicon": "2"
   },
   "devDependencies": {},

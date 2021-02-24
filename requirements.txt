@@ -6,7 +6,6 @@ async-generator==1.10
 attrs==20.2.0
 backcall==0.2.0
 backports.functools-lru-cache==1.6.1
-basemap==1.2.1
 biopython==1.68
 bleach==3.2.1
 bokeh==2.3.0.dev1

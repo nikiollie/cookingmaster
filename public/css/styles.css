@@ -2,6 +2,11 @@
 body {
     color:black;
 }
+input#image-button{
+    background: #ccc url('pumpkin_pie.png') no-repeat top left;
+    padding-left: 16px;
+    height: 70px;
+}
 
 .box {
 	display: flex;

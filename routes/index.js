@@ -30,7 +30,7 @@ exports.account = function(req, res){
     res.render('account');
 };
 
-const {spawn} = require('child_process');
+const spawn = require('child_process');
 exports.recipe = function(req, res){ 
         var dish = req.params.dish;
         var serving = req.params.serving;

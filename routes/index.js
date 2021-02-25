@@ -36,12 +36,12 @@ exports.recipe = function(req, res){
     var spawn = require('child_process').spawn;
     var dish = req.params.dish;
     var optional = req.params.optional;
-    console.log("dish: " + dish);
-    console.log("optional: " + optional);
+    // console.log("dish: " + dish);
+    // console.log("optional: " + optional);
 
     if (optional == undefined) {
         optional = "none";
-        console.log("optional: " + optional);
+        // console.log("optional: " + optional);
     };
 
     var recipeData;
@@ -50,7 +50,7 @@ exports.recipe = function(req, res){
     const python = spawn('python', ['ingredients.py', dish, optional]);
     // collect data from script
     python.stdout.on('data', function (data) {
-        console.log('Pipe recipe data from python script ...');
+        // console.log('Pipe recipe data from python script ...');
         recipeData = data.toString();
 
         //split recipe data into ingredients and instructions
@@ -73,7 +73,11 @@ exports.recipe = function(req, res){
 
         recipe_json.data = recipe_data;
 
-        res.redirect('/getinstructions');
+        res.render('loadingrecipe', {
+            'dish': dish,
+            'serving':req.params.serving,
+            'optional': optional
+        });
 
     });
 
@@ -83,12 +87,12 @@ exports.instructions = function(req, res){
     var spawn = require('child_process').spawn;
     var dish = recipe_json.data.dish;
     var optional = recipe_json.data.optional;
-    console.log("dish: " + dish);
-    console.log("optional: " + optional);
+    // console.log("dish: " + dish);
+    // console.log("optional: " + optional);
 
     if (optional == undefined) {
         optional = "none";
-        console.log("optional: " + optional);
+        // console.log("optional: " + optional);
     };
 
     var recipeData;
@@ -97,10 +101,10 @@ exports.instructions = function(req, res){
     const python = spawn('python', ['instructions.py', dish, optional]);
     // collect data from script
     python.stdout.on('data', function (data) {
-        console.log('Pipe recipe data from python script ...');
+        // console.log('Pipe recipe data from python script ...');
         recipeData = data.toString();
 
-        console.log("INSTRUCTIONS: " + recipeData);
+        // console.log("INSTRUCTIONS: " + recipeData);
         var instructions = "";
 
         if (recipeData != undefined) {
@@ -130,9 +134,9 @@ exports.convertrecipe = function(req, res){
     var orig_serving = recipe_json.data.orig_serving;
     var serving = recipe_json.data.serving;
 
-    console.log("ingredients: " + ingredients);
-    console.log("orig_serving: " + orig_serving);
-    console.log("serving: " + serving);
+    // console.log("ingredients: " + ingredients);
+    // console.log("orig_serving: " + orig_serving);
+    // console.log("serving: " + serving);
 
     var recipeData;
 
@@ -140,7 +144,7 @@ exports.convertrecipe = function(req, res){
     const python = spawn('python', ['conversion.py', ingredients, orig_serving, serving]);
     // collect data from script
     python.stdout.on('data', function (data) {
-        console.log('Pipe recipe data from python script ...');
+        // console.log('Pipe recipe data from python script ...');
         recipeData = data.toString();
 
         var ingredients = "";

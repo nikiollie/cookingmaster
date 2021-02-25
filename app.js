@@ -11,6 +11,7 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
+var accounts = require('./routes/accounts')
 
 
 // Example route
@@ -60,6 +61,8 @@ app.get('/newrecipe', index.newrecipe);
 app.get('/savedrecipes', index.savedrecipes);
 app.get('/recipe', index.recipe);
 app.get('/account', index.account);
+app.get('/accounts', accounts.addAccount);
+//app.get('/accounts', accounts.addAccounts);
 
 
 // Example route

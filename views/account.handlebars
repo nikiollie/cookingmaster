@@ -5,8 +5,11 @@
 	<title>Cooking Master</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<link href="/css/styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -23,5 +26,27 @@
             <input type="image" src="/images/home_logo.png" alt="Home">
         </a>
     </div>
+    <div class="popup-overlay">
+  <!--Creates the popup content-->
+  <div class="popup-content">
+    <h2>Pop-Up</h2>
+    <p> This is an example pop-up that you can make using jQuery.</p>
+    <!--popup's close button-->
+    <button class="close">Close</button> </div>
+</div>
+<!--Content shown when popup is not displayed-->
+    <form id="addAcountForm" role="form" method="get" action="/accounts">
+        <h3>Add your account</h3>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" class="form-control" id="description" placeholder="Description" name="description">
+        </div>
+<!--         <input type="submit" id="submitBtn" class="btn btn-default" value="Create Account"></input> -->
+        <button id = "submitBtn">Test</button>
+    </form>
 </body>
 </html>

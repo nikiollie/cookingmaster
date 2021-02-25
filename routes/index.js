@@ -55,18 +55,15 @@ exports.recipe = function(req, res){
 
         //split recipe data into ingredients and instructions
         var ingredients = "";
-        var orig_serving = "";
 
         if (recipeData != undefined) {
-            ingredients = recipeData.split("\n\n\n")[0];
-            orig_serving = recipeData.split("\n\n\n")[1];
+            ingredients = recipeData;
         }
 
         var recipe_data = {
             'dish': dish,
             'optional': optional,
             'ingredients': ingredients,
-            'orig_serving': orig_serving,
             'serving': req.params.serving,
             'instructions': ''
         };
@@ -106,16 +103,19 @@ exports.instructions = function(req, res){
 
         // console.log("INSTRUCTIONS: " + recipeData);
         var instructions = "";
+        var orig_serving = "";
+
 
         if (recipeData != undefined) {
-            instructions = recipeData;
+            instructions = recipeData.split("\n\n\n")[0];
+            orig_serving = recipeData.split("\n\n\n")[1];
         }
 
         var recipe_data = {
             'dish': dish,
             'optional': optional,
             'ingredients': recipe_json.data.ingredients,
-            'orig_serving': recipe_json.data.orig_serving,
+            'orig_serving': orig_serving,
             'serving': recipe_json.data.serving,
             'instructions': instructions,
         };

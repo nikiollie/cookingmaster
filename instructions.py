@@ -50,9 +50,11 @@ def findRecipe(dish, optional):
         instructions += paragraph + "\n"
         stepnum +=1
 
+    orig_serving = driver.find_element_by_class_name("recipe-adjust-servings__size-quantity").text
+
     driver.close()
 
-    return instructions
+    return instructions, orig_serving
 
 
 
@@ -63,6 +65,8 @@ if __name__ == '__main__':
     dish = str(sys.argv[1])
     optional = str(sys.argv[2])
 
-    instructions = findRecipe(dish, optional)
+    instructions, orig_serving = findRecipe(dish, optional)
     print(instructions)
+    print("\n\n")
+    print(orig_serving)
 

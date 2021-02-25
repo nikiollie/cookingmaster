@@ -49,14 +49,13 @@ def findRecipe(dish, optional):
         ingredients += "\n"
 
     # orig_serving = driver.find_element_by_xpath("//*[@id='ar-calvera-app']/section[1]/div[1]/div[1]").get_attribute('data-init-servings-size')
-    orig_serving = driver.find_element_by_class_name("recipe-adjust-servings__size-quantity").text
 
     driver.close()
 
 
     # ingredients="tomato"
     # instructions="make"
-    return ingredients, orig_serving
+    return ingredients
 
 
 
@@ -67,9 +66,7 @@ if __name__ == '__main__':
     dish = str(sys.argv[1])
     optional = str(sys.argv[2])
 
-    ingredients, orig_serving = findRecipe(dish, optional)
+    ingredients = findRecipe(dish, optional)
 
     print(ingredients)
-    print("\n\n")
-    print(orig_serving)
 

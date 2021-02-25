@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import pickle
 import sys, time, os
 
 # elem = driver.find_element_by_name("q")
@@ -37,10 +38,9 @@ def findRecipe(dish, optional):
         link = "https://www.allrecipes.com/search/results/?sort=re&wt=" + dish
         driver.get(link)
 
-    # assert "No results found." not in driver.page_source
-    # firstResult = driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div[3]/section/article[2]")
-    firstResult = driver.find_element_by_xpath("//article[@class='fixed-recipe-card']")
-    firstResult.click()
+
+    # driver.find_element_by_xpath("//article[@class='fixed-recipe-card']").click()
+    driver.find_element_by_id("fixedGridSection").find_element_by_xpath(".//article[@class='fixed-recipe-card']").click()
 
     ingredients = ""
     all_spans = driver.find_elements_by_class_name("ingredients-item-name")
@@ -48,8 +48,8 @@ def findRecipe(dish, optional):
         ingredients += span.text 
         ingredients += "\n"
 
-    orig_serving = driver.find_element_by_xpath("//*[@id='ar-calvera-app']/section[1]/div[1]/div[1]").get_attribute('data-init-servings-size')
-
+    # orig_serving = driver.find_element_by_xpath("//*[@id='ar-calvera-app']/section[1]/div[1]/div[1]").get_attribute('data-init-servings-size')
+    orig_serving = driver.find_element_by_class_name("recipe-adjust-servings__size-quantity").text
 
     #instructions!
     instructions = ""
@@ -72,9 +72,9 @@ def getCorrectServing(ingredients, orig_serving, serving):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     driver.get("https://mykitchencalculator.com/recipeconverter.html")
-    # clear = driver.find_element_by_xpath("//*[@id='clearListButton']")
-    # clear.click()
-    recipeIn = driver.find_element_by_xpath("//*[@id='recipein']")
+
+    # recipeIn = driver.find_element_by_xpath("//*[@id='recipein']")
+    recipeIn = driver.find_element_by_id("recipein")
     recipeIn.clear()
     recipeIn.send_keys(ingredients)
     recipeIn.send_keys(Keys.TAB) #or .submit()
@@ -94,7 +94,6 @@ def getCorrectServing(ingredients, orig_serving, serving):
 
     driver.find_element_by_id("portionButton").click()
 
-    time.sleep(2)
     new_ing = driver.find_element_by_id("recipeout").get_attribute('value')
 
     driver.close()

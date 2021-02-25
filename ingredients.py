@@ -20,7 +20,7 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-def findRecipe(dish, optional):
+def getIngredients(dish, optional):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     dish = dish.replace(" ", "%20")
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     dish = str(sys.argv[1])
     optional = str(sys.argv[2])
 
-    ingredients = findRecipe(dish, optional)
+    ingredients = getIngredients(dish, optional)
 
     print(ingredients)
 

@@ -20,7 +20,7 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-def getInstructions(dish, optional):
+def findRecipe(dish, optional):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     dish = dish.replace(" ", "%20")
@@ -38,23 +38,16 @@ def getInstructions(dish, optional):
         link = "https://www.allrecipes.com/search/results/?sort=re&wt=" + dish
         driver.get(link)
 
+
     driver.find_element_by_id("fixedGridSection").find_element_by_xpath(".//article[@class='fixed-recipe-card']").click()
 
-    #instructions!
-    instructions = ""
-    instr_list = driver.find_elements_by_class_name("instructions-section-item")
-    stepnum = 1
-    for instr in instr_list:
-        instructions += "Step " + str(stepnum) + "\n"
-        paragraph = instr.find_element_by_xpath(".//div[@class='section-body']/div[@class='paragraph']/p").text
-        instructions += paragraph + "\n"
-        stepnum +=1
+    recipeName = driver.find_element_by_css_selector("h1.headline.heading-content").text
 
-    orig_serving = driver.find_element_by_class_name("recipe-adjust-servings__size-quantity").text
+    url = driver.current_url
 
     driver.close()
 
-    return instructions, orig_serving
+    return url, recipeName
 
 
 
@@ -65,8 +58,9 @@ if __name__ == '__main__':
     dish = str(sys.argv[1])
     optional = str(sys.argv[2])
 
-    instructions, orig_serving = getInstructions(dish, optional)
-    print(instructions)
+    url, recipeName = findRecipe(dish, optional)
+
+    print(url)
     print("\n\n")
-    print(orig_serving)
+    print(recipeName)
 

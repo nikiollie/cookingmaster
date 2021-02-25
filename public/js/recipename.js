@@ -13,6 +13,6 @@ function initializePage() {
 
 function clickButton() {
 	document.getElementById("findRecipe").click();
-    $("#findRecipe").html("Getting instructions...");
-    window.location.href = "/getrecipe";
+    $("#findRecipe").html("Getting ingredients...");
+    window.location.href = "/recipename";
 }

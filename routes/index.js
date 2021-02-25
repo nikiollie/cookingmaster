@@ -73,15 +73,15 @@ exports.findrecipe = function(req, res){
 
         recipe_json.data = recipe_data;
 
-        res.redirect('/recipename');
+        // res.redirect('/recipename');
 
-        // res.render('findingrecipe', {
-        //     'dish': dish,
-        //     'recipeName': '',
-        //     'url':url,
-        //     'serving':req.params.serving,
-        //     'optional': optional
-        // });
+        res.render('getrecipename', {
+            'dish': dish,
+            'recipeName': '',
+            'url':url,
+            'serving':req.params.serving,
+            'optional': optional
+        });
 
     });
 

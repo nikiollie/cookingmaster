@@ -1,5 +1,5 @@
 # Cooking Master
-The [Cooking Master app](https://cookingmasterapp.herokuapp.com/) helps you learn and cook news recipes faster! No more ingredient conversions to get the 
+The [Cooking Master app](https://cookingmasterapp.herokuapp.com/) helps you learn and cook new recipes faster! No more ingredient conversions to get the 
 correct portions for the serving size you want, no more endless math! Just enter the recipe, serving size, and any 
 optional ingredients you want in your recipe and Cooking Master will give you the perfect recipe! 
 

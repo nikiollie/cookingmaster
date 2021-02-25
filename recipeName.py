@@ -20,32 +20,16 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-def findRecipe(dish, optional):
+def findRecipeName(url):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-    dish = dish.replace(" ", "%20")
-    if optional != "none":
-        optional = optional.split(",")
-        optionalStr = ""
-        for index, i in enumerate(optional):
-            i = i.replace(" ", "%20")
-            optionalStr += i
-            if len(optional) > 1 and index < len(optional)-1:
-                optionalStr += ","
-        link = "https://www.allrecipes.com/search/results/?wt=" + dish + "&ingIncl=" + optionalStr + "&sort=re"
-        driver.get(link)
-    else:
-        link = "https://www.allrecipes.com/search/results/?sort=re&wt=" + dish
-        driver.get(link)
+    driver.get(url)
 
-
-    driver.find_element_by_id("fixedGridSection").find_element_by_xpath(".//article[@class='fixed-recipe-card']").click()
-
-    url = driver.current_url
+    recipeName = driver.find_element_by_css_selector("h1.headline.heading-content").text
 
     driver.close()
 
-    return url
+    return recipeName
 
 
 
@@ -53,11 +37,9 @@ def findRecipe(dish, optional):
 #start process
 if __name__ == '__main__':
 
-    dish = str(sys.argv[1])
-    optional = str(sys.argv[2])
+    url = str(sys.argv[1])
 
-    url = findRecipe(dish, optional)
+    recipeName = findRecipeName(url)
 
-    print(url)
-
+    print(recipeName)
 

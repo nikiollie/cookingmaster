@@ -59,6 +59,7 @@ app.get('/newrecipe/', index.newrecipe);
 app.get(
   ['/dishname/:dish/serving/:serving/optional/:optional', '/dishname/:dish/serving/:serving/optional/'], 
   index.findrecipe);
+app.get('/recipename', index.findrecipename);
 app.get('/getrecipe', index.recipe);
 app.get('/getinstructions', index.instructions)
 app.get('/recipe', index.convertrecipe)

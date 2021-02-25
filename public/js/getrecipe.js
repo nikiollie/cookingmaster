@@ -7,6 +7,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+    document.getElementById("patient").style.display = "none";
 	$('#findRecipe').click(findRecipe);
 }
 
@@ -23,5 +24,7 @@ function findRecipe(e) {
 
 function callBackFn(dish, serving, optional) {
     $("#findRecipe").html("Searching...");
+    document.getElementById("patient").style.display = "block";
+
     window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
 }

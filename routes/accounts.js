@@ -1,6 +1,11 @@
 var data = require("../data.json");
 const fs = require('fs')
 
+// exports.view = function(req, res){
+// 	console.log(data);
+//     res.render('accounts');
+// };
+
 exports.addAccount = function(request, response) {   
 	// var mydata = JSON.parse(data);
 	// alert(mydata[0].name);
@@ -75,3 +80,8 @@ response.end();
 // 	response.send('Name: ' + name  + " Description: " + description);
 // 	//response.send(description);
 // }
+
+exports.view = function(req, res){
+	console.log(data);
+    res.render('index');
+};

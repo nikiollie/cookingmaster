@@ -57,9 +57,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Add routes here
 app.get('/', index.login);
 app.get('/index', index.index);
-app.get('/newrecipe', index.newrecipe);
+app.get('/newrecipe/', index.newrecipe);
+app.get(
+  ['/dishname/:dish/serving/:serving/optional/:optional', '/dishname/:dish/serving/:serving/optional/'], 
+  index.findrecipe);
+app.get('/recipename', index.findrecipename);
+app.get('/getrecipe', index.recipe);
+app.get('/getinstructions', index.instructions)
+app.get('/recipe', index.convertrecipe)
 app.get('/savedrecipes', index.savedrecipes);
-app.get('/recipe', index.recipe);
 app.get('/account', index.account);
 app.get('/accounts', accounts.addAccount);
 //app.get('/accounts', accounts.addAccounts);

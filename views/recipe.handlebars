@@ -17,12 +17,17 @@
         </a>
   	</div>
 	<div class = "d-flex justify-content-center align-items-center center">
-        <h1 class="title">Recipe</h1>
+        <h1 class="title">{{recipeName}}</h1>
+		<a href="{{url}}" target="_blank">Recipe Source</a>
+		<p>Desired Serving Size: {{serving}}</p>
+		<p class="ingredients">{{ingredients}}</p>
+		<p class="instructions">{{instructions}}</p>
     </div>
 	<div id="home">
-		<a href="index">
+		<a href="/index">
 		<input type="image" src="/images/home_logo.png" alt="Home">
 		</a>
   	</div>
+	<script src="https://code.jquery.com/jquery.js"></script>
 </body>
 </html>

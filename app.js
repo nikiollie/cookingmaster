@@ -11,7 +11,7 @@ var path = require('path');
 var handlebars = require('express3-handlebars');
 
 var index = require('./routes/index');
-var accounts = require('./routes/accounts');
+// var accounts = require('./routes/accounts');
 
 
 // Example route
@@ -57,6 +57,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Add routes here
 app.get('/', index.login);
 app.get('/index', index.index);
+app.get('/index/user/:user', index.name);
+// app.get('/index/:account')
 app.get('/newrecipe/', index.newrecipe);
 app.get(
   ['/dishname/:dish/serving/:serving/optional/:optional', '/dishname/:dish/serving/:serving/optional/'], 
@@ -66,11 +68,12 @@ app.get('/getrecipe', index.recipe);
 app.get('/getinstructions', index.instructions)
 app.get('/recipe', index.convertrecipe)
 app.get('/savedrecipes', index.savedrecipes);
+app.post('/saveRecipe', index.sendrecipe);
 app.get('/account', index.account);
-app.get('/accounts', accounts.addAccount);
+// app.get('/accounts', accounts.addAccount);
 //app.get('/accounts', accounts.addAccounts);
-app.get('/createaccount', index.createaccount);
-app.get('/forgotpassword', index.forgotpassword);
+// app.get('/createaccount', index.createaccount);
+// app.get('/forgotpassword', index.forgotpassword);
 
 
 // Example route

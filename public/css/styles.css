@@ -87,7 +87,7 @@ input#image-button{
     position: fixed;
     bottom: 0;
     left: 0;
-}
+  }
 
 .loginpage {
     background-image: url("/images/newloginbackgrnd.png");

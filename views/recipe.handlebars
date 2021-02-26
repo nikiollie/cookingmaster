@@ -17,22 +17,20 @@
         </a>
   	</div>
 	<div class = "d-flex justify-content-center align-items-center center">
-        <h1 class="title">Recipe</h1>
-		<label class="input" href="newrecipe">Pumpkin Spice Recipe</label><br>
 
+		<h1 class="title">{{recipeName}}</h1>
+		<a href="{{url}}" target="_blank">Recipe Source</a>
+		<p>Desired Serving Size: {{serving}}</p>
 		<label class="input" href="newrecipe">INGREDIENTS:</label><br>
-		<ul class="input">
-			<li >Homemade pie crust (full recipe makes 2 crusts: 1 for bottom, 1 for leaf decor)</li>
-			<li>one 15oz can (about 2 cups; 450g) pumpkin puree*</li>
-			<li>3 large eggs</li>
-		</ul> 
-		<label class="input" href="newrecipe">INSTRUCTIONS:</label><br>
-		<ol class="input">
-			<li>Whisk the pumpkin, 3 eggs, and brown sugar together until combined. </li>
-			<li>Preheat oven to 375°F (190°C).</li>
-			<li>Roll out the chilled pie crust: Remove 1 disc of pie dough from the refrigerator. </li>
-		</ol>  
-		<div class = "d-flex justify-content-center align-items-center center" >        
+    <ul class="input">
+		  <li>{{ingredients}}</li>
+    </ul>
+    <label class="input" href="newrecipe">INSTRUCTIONS:</label><br>
+    <ul class="input">
+		  <li>{{instructions}}</li>
+    </ul
+    
+    <div class = "d-flex justify-content-center align-items-center center" >        
 			<a href="newrecipe">
 				<button class="button" value="NewRecipe">Edit Recipe</button>
 			</a>
@@ -40,17 +38,14 @@
 			<a href="savedrecipes">
 				<button class="button" value="SavedRecipes">Save Recipe</button>
 			</a>
-    	</div>
-		
-
-
-
     </div>
+    
+  </div>
 	<div id="home">
-		<a href="index">
-		
-		<input type="image" src="/images/home_logo.png" alt="Home">
+		<a href="/index">
+		  <input type="image" src="/images/home_logo.png" alt="Home">
 		</a>
-  	</div>
+  </div>
+	<script src="https://code.jquery.com/jquery.js"></script>
 </body>
 </html>

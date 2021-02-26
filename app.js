@@ -62,9 +62,9 @@ app.get(
   ['/dishname/:dish/serving/:serving/optional/:optional', '/dishname/:dish/serving/:serving/optional/'], 
   index.findrecipe);
 app.get('/recipename', index.findrecipename);
-app.get('/getrecipe', index.recipe);
+app.get('/foundrecipe', index.foundrecipe);
 app.get('/getinstructions', index.instructions)
-app.get('/recipe', index.convertrecipe)
+// app.get('/recipe', index.convertrecipe)
 app.get('/savedrecipes', index.savedrecipes);
 app.get('/account', index.account);
 // app.get('/accounts', accounts.addAccount);

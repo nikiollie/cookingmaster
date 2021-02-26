@@ -31,6 +31,10 @@ exports.newrecipe = function(req, res){
     res.render('newrecipe');
 };
 
+exports.foundrecipe = function(req, res){
+    res.render('recipe');
+};
+
 exports.savedrecipes = function(req, res){
     res.render('savedrecipes');
 };

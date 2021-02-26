@@ -26,7 +26,7 @@ exports.index = function(req, res){
     var name = data_file.user.name;
 
     res.render('index', {
-        'name': name,
+        'name': name
         // 'pictureurl': pictureurl
     });
 };
@@ -40,7 +40,7 @@ exports.name = function(req, res){
     data_file.user.name = name;
 
     res.render('index', {
-        'name': name,
+        'name': name
         // 'pictureurl': pictureurl
     });
 };
@@ -62,10 +62,10 @@ exports.savedrecipes = function(req, res){
 
     res.render('savedrecipes', {
         'name': name,
-        saved,
+        saved
         // 'pictureurl': pictureurl
     });
-;};
+};
 
 exports.sendrecipe = function(req, res) {
     var recipeName = req.query.recipeName;
@@ -88,7 +88,7 @@ exports.sendrecipe = function(req, res) {
 
     res.render('savedrecipes', {
         'name': name,
-        saved,
+        saved
     });
 }
 exports.account = function(req, res){
@@ -100,7 +100,7 @@ exports.account = function(req, res){
     // console.log("picture url: " + pictureurl);
 
     res.render('account', {
-        'name': name,
+        'name': name
         // 'pictureurl': pictureurl
     });
 

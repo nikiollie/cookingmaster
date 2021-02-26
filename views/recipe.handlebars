@@ -17,17 +17,35 @@
         </a>
   	</div>
 	<div class = "d-flex justify-content-center align-items-center center">
-        <h1 class="title">{{recipeName}}</h1>
+
+		<h1 class="title">{{recipeName}}</h1>
 		<a href="{{url}}" target="_blank">Recipe Source</a>
 		<p>Desired Serving Size: {{serving}}</p>
-		<p class="ingredients">{{ingredients}}</p>
-		<p class="instructions">{{instructions}}</p>
+		<label class="input" href="newrecipe">INGREDIENTS:</label><br>
+    <ul class="input">
+		  <li>{{ingredients}}</li>
+    </ul>
+    <label class="input" href="newrecipe">INSTRUCTIONS:</label><br>
+    <ul class="input">
+		  <li>{{instructions}}</li>
+    </ul
+    
+    <div class = "d-flex justify-content-center align-items-center center" >        
+			<a href="newrecipe">
+				<button class="button" value="NewRecipe">Edit Recipe</button>
+			</a>
+			<br>
+			<a href="savedrecipes">
+				<button class="button" value="SavedRecipes">Save Recipe</button>
+			</a>
     </div>
+    
+  </div>
 	<div id="home">
 		<a href="/index">
-		<input type="image" src="/images/home_logo.png" alt="Home">
+		  <input type="image" src="/images/home_logo.png" alt="Home">
 		</a>
-  	</div>
+  </div>
 	<script src="https://code.jquery.com/jquery.js"></script>
 </body>
 </html>

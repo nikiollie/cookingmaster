@@ -1,6 +1,26 @@
 
+.saved_recipe_buttons{
+    display:inline-block;
+    white-space:normal;  
+    margin: 0;
+    padding: 0;
+}
+.swd-button {
+  
+   
+	color: white;
+    display: inline-block;
+	
+
+
+}
 body {
     color:black;
+}
+input#image-button{
+    background: #ccc url('pumpkin_pie.png') no-repeat top left;
+    padding-left: 16px;
+    height: 70px;
 }
 
 .box {
@@ -38,6 +58,12 @@ body {
     transition-duration: 0.4s;
 }
 
+.saved_recipe_buttons{
+    display:inline-block;
+    white-space:normal;  
+    margin: 0;
+    padding: 0;
+}
 .button:hover {
     background-color: black; 
     color: white;
@@ -91,3 +117,9 @@ body {
     box-shadow:         3px 3px 5px 6px #ccc;    
 }
 
+.saved_recipe_buttons{
+    display:inline-block;
+    white-space:normal;  
+    margin: 0;
+    padding: 0;
+}

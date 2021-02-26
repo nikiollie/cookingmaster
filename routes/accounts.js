@@ -26,7 +26,7 @@ exports.addAccount = function(request, response) { 
 // });
 
 	//console.log('hi');
-	var hold = {'name':request.query.name,'description':request.query.description};
+	var hold = {'name':request.query.name,'password':request.query.password};
 	data.acc.push(hold);
 	console.log(data.acc)
 	var json = JSON.stringify(hold);

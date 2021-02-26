@@ -62,35 +62,35 @@ exports.savedrecipes = function(req, res){
 
     res.render('savedrecipes', {
         'name': name,
-        saved
+        // 'recipes': saved.recipes
         // 'pictureurl': pictureurl
     });
 };
 
-exports.sendrecipe = function(req, res) {
-    var recipeName = req.query.recipeName;
-    var serving = req.query.serving;
-    var ingredients = req.query.ingredients;
-    var instructions = req.query.instructions;
-    var url = req.query.url;
+// exports.sendrecipe = function(req, res) {
+//     var recipeName = req.query.recipeName;
+//     var serving = req.query.serving;
+//     var ingredients = req.query.ingredients;
+//     var instructions = req.query.instructions;
+//     var url = req.query.url;
 
-    console.log("saved: " + recipeName);
-    var newsavedrecipe = {
-        'recipeName': recipeName,
-        'serving' : serving,
-        'ingredients' : ingredients,
-        'instructions' : instructions,
-        'url' : url  
-    }
-    var name = data_file.user.name;
+//     console.log("saved: " + recipeName);
+//     var newsavedrecipe = {
+//         'recipeName': recipeName,
+//         'serving' : serving,
+//         'ingredients' : ingredients,
+//         'instructions' : instructions,
+//         'url' : url  
+//     }
+//     var name = data_file.user.name;
 
-    saved.recipes.push(newsavedrecipe);
+//     saved.recipes.push(newsavedrecipe);
 
-    res.render('savedrecipes', {
-        'name': name,
-        saved
-    });
-}
+//     res.render('savedrecipes', {
+//         'name': name,
+//         saved
+//     });
+// }
 exports.account = function(req, res){
 
     var name = data_file.user.name;

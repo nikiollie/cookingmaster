@@ -68,7 +68,7 @@ app.get('/getrecipe', index.recipe);
 app.get('/getinstructions', index.instructions)
 app.get('/recipe', index.convertrecipe)
 app.get('/savedrecipes', index.savedrecipes);
-app.post('/saveRecipe', index.sendrecipe);
+// app.post('/saveRecipe', index.sendrecipe);
 app.get('/account', index.account);
 // app.get('/accounts', accounts.addAccount);
 //app.get('/accounts', accounts.addAccounts);

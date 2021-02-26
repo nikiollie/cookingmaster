@@ -18,7 +18,7 @@
         </a>
   	</div>
 	<div class = "d-flex justify-content-center align-items-center center">
-		<form action="/saveRecipe" method="post" class = "d-flex justify-content-center align-items-center center">
+		{{!-- <form action="/saveRecipe" method="post" class = "d-flex justify-content-center align-items-center center"> --}}
 			<h1 class="title" name="recipeName" id="recipeName">{{recipeName}}</h1>
 			<a href="{{url}}" name="url" id="url" target="_blank">Recipe Source</a>
 			<p id="serving">Desired Serving Size: {{serving}}</p>
@@ -36,11 +36,11 @@
 						<button class="button" value="NewRecipe">Edit Recipe</button>
 					</a>
 					<br>
-					{{!-- <a href="/sendRecipe"> --}}
+					<a href="/savedrecipes">
 					<button type="submit" class="button" id="saverecipe" value="SavedRecipes">Save Recipe</button>
-					{{!-- </a> --}}
+					</a>
 			</div>
-		</form>
+		{{!-- </form> --}}
     
   	</div>
 	<div id="home">

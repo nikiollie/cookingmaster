@@ -2,14 +2,15 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var methodOverride = require('method-override');
-var session = require('express-session');
+// var session = require('express-session');
+var session = require('cookie-session');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var errorHandler = require('errorhandler');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
-var MemoryStore = require('memorystore')(session)
+// var MemoryStore = require('memorystore')(session)
 
 var index = require('./routes/index');
 // var accounts = require('./routes/accounts');
@@ -43,17 +44,17 @@ app.use(methodOverride());
 
 // app.use(express.cookieParser('IxD secret key'));
 // app.use(express.session());
-// app.use(session({ resave: true, saveUninitialized: true, 
-//   secret: 'uwotm8' }));
-app.use(session({
-  cookie: { maxAge: 86400000 },
-  store: new MemoryStore({
-    checkPeriod: 86400000 // prune expired entries every 24h
-  }),
-  resave: false,
-  saveUninitialized: true,
-  secret: 'keyboard cat'
-}))
+app.use(session({ resave: true, saveUninitialized: true, 
+  secret: 'uwotm8' }));
+// app.use(session({
+//   cookie: { maxAge: 86400000 },
+//   store: new MemoryStore({
+//     checkPeriod: 86400000 // prune expired entries every 24h
+//   }),
+//   resave: false,
+//   saveUninitialized: true,
+//   secret: 'keyboard cat'
+// }))
 
 app.use(multer());
 

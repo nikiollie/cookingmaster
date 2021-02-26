@@ -62,7 +62,7 @@ exports.savedrecipes = function(req, res){
 
     res.render('savedrecipes', {
         'name': name,
-        saved
+        saved,
         // 'pictureurl': pictureurl
     });
 ;};
@@ -89,7 +89,7 @@ exports.sendrecipe = function(req, res) {
     res.render('savedrecipes', {
         'name': name,
         saved,
-    })
+    });
 }
 exports.account = function(req, res){
 

@@ -21,12 +21,13 @@
         <h1 class="title">Saved Recipes</h1>
        
             <div class = "buttons" class="swd-button">
-                <a href="recipe">
-                    <button class="button" value="recipe">Pumpkin Pie</button>
+                <a href="/newrecipe">
+                    <button id="pie_button" class="button" value="recipe">Pumpkin Pie</button>
                 </a>
             </div>
-            <input class="swd-button" type="image" width="50" height="50" src="images/red_x.png" name="saveForm" class="btTxt submit" id="saveForm"></input>
-    
+            <div class = "buttons" class="swd-button">
+                <input onclick = "removeAll()" class="swd-button" type="image" width="40" height="40" src="images/red_x.png" name="saveForm" class="btTxt submit" id="saveForm"></input>
+            </div>
     		{{!-- {{#each recipes}}
             <h1>{{recipeName}}</h1>
 		    {{/each}} --}}
@@ -37,5 +38,7 @@
             <input type="image" src="/images/home_logo.png" alt="Home">
         </a>
     </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/finding.js"></script>
 </body>
 </html>

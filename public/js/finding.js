@@ -16,3 +16,9 @@ function clickButton() {
     $("#findRecipe").html("Getting instructions...");
     window.location.href = "/getrecipe";
 }
+
+function removeAll(){
+    console.log("hi");
+    document.getElementById("pie_button").style.display="none";
+    document.getElementById("saveForm").style.display="none";
+}

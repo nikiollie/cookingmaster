@@ -10,8 +10,8 @@ import sys, time, os
 # assert "No results found." not in driver.page_source
 # driver.close()
 
-# os.environ["GOOGLE_CHROME_BIN"] = "/usr/bin/google-chrome"
-# os.environ["CHROMEDRIVER_PATH"] = "/usr/local/bin/chromedriver"
+os.environ["GOOGLE_CHROME_BIN"] = "/Users/raechelwalker/chromedriver"
+os.environ["CHROMEDRIVER_PATH"] = "/Users/raechelwalker/Applications/google-chrome"
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")

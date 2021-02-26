@@ -6,14 +6,10 @@
     padding: 0;
 }
 .swd-button {
-  
-   
 	color: white;
     display: inline-block;
-	
-
-
 }
+
 body {
     color:black;
 }
@@ -21,6 +17,9 @@ input#image-button{
     background: #ccc url('pumpkin_pie.png') no-repeat top left;
     padding-left: 16px;
     height: 70px;
+}
+#pie_button,#saveForm {
+    display:inline-block;
 }
 
 .box {
@@ -34,7 +33,6 @@ input#image-button{
 
 .buttons {
 	align-self: center;
-
 }
 
 .title {
@@ -87,7 +85,7 @@ input#image-button{
     position: fixed;
     bottom: 0;
     left: 0;
-  }
+}
 
 .loginpage {
     background-image: url("/images/newloginbackgrnd.png");

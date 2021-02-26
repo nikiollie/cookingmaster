@@ -1,7 +1,9 @@
 /*
  * GET home page.
  */
-
+function removeAll(){
+    document.getElementById("checkList").innerHTML = "";
+}
 var recipe_json = require('../recipe.json');
 
 
@@ -57,7 +59,7 @@ exports.findrecipe = function(req, res){
     // collect data from script
     python.stdout.on('data', function (data) {
         recipeData = data.toString();
-        // console.log("Recipe data: " + recipeData);
+        console.log("Recipe data: " + recipeData);
 
         var url = "";
 

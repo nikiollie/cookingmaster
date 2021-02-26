@@ -1,7 +1,11 @@
 {
 	"data": [
         {
-		"ingredients": "",
+        "ingredients": "",
+        "dish": "",
+        "recipeName": "",
+        "url":"",
+        "optional":"",
 		"instructions": "",
 		"orig_serving": "",
         "serving": ""

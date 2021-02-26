@@ -64,7 +64,7 @@ exports.savedrecipes = function(req, res){
         'name': name,
         saved
         // 'pictureurl': pictureurl
-    })
+    });
 ;};
 
 exports.sendrecipe = function(req, res) {

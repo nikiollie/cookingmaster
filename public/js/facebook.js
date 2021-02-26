@@ -40,6 +40,7 @@ function checkLoginState() {
     $('.fbloginbutton').hide();
     $('.loginLogo').hide();
     $('.loginTitle').hide();
+    $('#signinwords').hide();
     $('#name').text(response.name);
     $('#photo').attr("src", response.picture.data.url);
 

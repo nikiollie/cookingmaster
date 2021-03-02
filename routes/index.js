@@ -4,22 +4,14 @@
 
 var recipe_json = require('../recipe.json');
 var saved = require('../saved.json');
-
 var data_file = require('../data.json');
+
 exports.view = function(req, res){
 	console.log(data);
 }
 exports.login = function(req, res){
     res.render('login');
 };
-
-// exports.forgotpassword = function(req, res){
-//     res.render('forgot');
-// };
-
-// exports.createaccount = function(req, res){
-//     res.render('create');
-// };
 
 exports.index = function(req, res){
 
@@ -59,38 +51,110 @@ exports.newrecipe = function(req, res){
 
 exports.savedrecipes = function(req, res){
     var name = data_file.user.name;
-
+    // console.log("SAVeD: " + saved.recipes[0].recipeName);
     res.render('savedrecipes', {
         'name': name,
+        recipes: saved.recipes
         // 'recipes': saved.recipes
         // 'pictureurl': pictureurl
     });
 };
 
-// exports.sendrecipe = function(req, res) {
-//     var recipeName = req.query.recipeName;
-//     var serving = req.query.serving;
-//     var ingredients = req.query.ingredients;
-//     var instructions = req.query.instructions;
-//     var url = req.query.url;
+exports.removerecipe = function(req, res) {
 
-//     console.log("saved: " + recipeName);
-//     var newsavedrecipe = {
-//         'recipeName': recipeName,
-//         'serving' : serving,
-//         'ingredients' : ingredients,
-//         'instructions' : instructions,
-//         'url' : url  
-//     }
-//     var name = data_file.user.name;
+    // var fs = require('fs');
 
-//     saved.recipes.push(newsavedrecipe);
+    var recipeName = req.params.recipeName;
+    console.log(recipeName);
 
-//     res.render('savedrecipes', {
-//         'name': name,
-//         saved
-//     });
-// }
+    
+        // fs.readFile('saved.json', 'utf8', function readFileCallback(err, data){
+        //     if (err){
+        //         console.log(err);
+        //     } else {
+    // obj = JSON.parse(data); //now it an object
+
+    var numSaved = saved.recipes.length;
+    console.log("Number of saved: " + numSaved);
+
+    for (var i=0; i < numSaved; i++) {
+        if (saved.recipes[i] != undefined && saved.recipes[i].recipeName == recipeName) {
+            saved.recipes.splice(i, 1);
+            console.log("hopefully removing: " + recipeName);
+        }
+    }
+
+                // json = JSON.stringify(obj); //convert it back to json
+                // fs.writeFile('saved.json', data, 'utf8', function(err){
+                //     if(err) return console.log(err);
+                //     console.log('Note added');
+                // });
+    var name = data_file.user.name;
+    // console.log("SAVeD: " + saved.recipes[0].recipeName);
+    res.render('savedrecipes', {
+        'name': name,
+        recipes: saved.recipes
+        // 'recipes': saved.recipes
+        // 'pictureurl': pictureurl
+    });    // res.end();
+
+};
+
+exports.sendrecipe = function(req, res) {
+    var recipeName = req.query.recipeName;
+    var serving = req.query.serving;
+    var ingredients = req.query.ingredients;
+    var instructions = req.query.instructions;
+    var url = req.query.url;
+
+    var newsavedrecipe = {
+        'recipeName': recipeName,
+        'serving' : serving,
+        'ingredients' : ingredients,
+        'instructions' : instructions,
+        'url' : url  
+    }
+    var name = data_file.user.name;
+    // var fs = require('fs');
+    // fs.readFile('saved.json', 'utf8', function readFileCallback(err, data){
+    //     if (err){
+    //         console.log(err);
+    //     } else {
+    //     obj = JSON.parse(data); //now it an object
+    //     obj.recipes.push(newsavedrecipe); //add some data
+    //     json = JSON.stringify(obj); //convert it back to json
+    //     fs.writeFile('saved.json', json, 'utf8', function(err){
+    //         if(err) return console.log(err);
+    //         console.log('Note added');
+    //     });
+    // }});
+
+    saved.recipes.push(newsavedrecipe);
+
+    res.render('savedrecipes', {
+        'name': name,
+        recipes: saved.recipes
+    });
+}
+
+exports.displaysavedrecipe = function(req, res) {
+    var name = data_file.user.name;
+    var recipeName = req.query.recipeName;
+    var serving = req.query.serving;
+    var ingredients = req.query.ingredients;
+    var instructions = req.query.instructions;
+    var url = req.query.url;
+
+    res.render('displaysaved', {
+        'ingredients': ingredients,
+        'instructions': instructions,
+        'recipeName': recipeName,
+        'url': url,
+        'serving': serving,
+        'name':name,
+    });
+}
+
 exports.account = function(req, res){
 
     var name = data_file.user.name;

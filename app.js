@@ -13,8 +13,9 @@ var handlebars = require('express3-handlebars');
 // var MemoryStore = require('memorystore')(session)
 
 var index = require('./routes/index');
-// var accounts = require('./routes/accounts');
 
+// var saved = require('./saved.json');
+// module.exports = saved;
 
 // Example route
 // var user = require('./routes/user');
@@ -76,7 +77,9 @@ app.get('/getrecipe', index.recipe);
 app.get('/getinstructions', index.instructions)
 app.get('/recipe', index.convertrecipe)
 app.get('/savedrecipes', index.savedrecipes);
-// app.post('/saveRecipe', index.sendrecipe);
+app.get('/saveRecipe', index.sendrecipe);
+app.get('/removerecipe/:recipeName', index.removerecipe);
+app.get('/displaysavedrecipe', index.displaysavedrecipe);
 app.get('/account', index.account);
 // app.get('/accounts', accounts.addAccount);
 //app.get('/accounts', accounts.addAccounts);

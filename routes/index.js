@@ -200,10 +200,10 @@ exports.account = function(req, res){
 //gets url of recipe page
 exports.findrecipe = function(req, res){ 
     var spawn = require('child_process').spawn;
-    var dish = req.query.dish;
-    var optional = req.query.optional;
+    var dish = req.params.dish;
+    var optional = req.params.optional;
     console.log("dish: " + dish);
-    console.log("serving: " + req.query.serving);
+    console.log("serving: " + req.params.serving);
     console.log("optional: " + optional);
 
     if (optional == undefined || optional == "") {
@@ -245,7 +245,7 @@ exports.findrecipe = function(req, res){
             'dish': dish,
             'recipeName': '',
             'url': url,
-            'serving':req.query.serving,
+            'serving':req.params.serving,
             'optional': optional
         });
 

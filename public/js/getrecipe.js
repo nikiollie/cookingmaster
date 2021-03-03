@@ -13,7 +13,7 @@ function initializePage() {
 
 function findRecipe(e) {
 	// Prevent following the link
-	// e.preventDefault();
+	e.preventDefault();
 
     var dish = $("#dish").val();
     var serving = $("#serving").val();
@@ -26,5 +26,5 @@ function callBackFn(dish, serving, optional) {
     $("#findRecipe").html("Searching...");
     document.getElementById("patient").style.display = "block";
 
-    // window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
+    window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
 }

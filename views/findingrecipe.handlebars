@@ -19,12 +19,7 @@
   <div class = "d-flex justify-content-center">
     <div class = "box">
           <h1 class="title">New Recipe</h1>
-          <form action="/getrecipe" method="get">
-            <input name="recipeName" id="recipeName" class = "hide" value="{{recipeName}}">
-            <input name="url" id="url" class = "hide" value="{{url}}">
-            <input name="ingredients" id="ingredients" class = "hide" value="{{ingredients}}">
-            <input name="instructions" id="instructions" class = "hide" value="{{instructions}}">
-
+          <form action="">
               <label class="input">What would you like to cook:</label><br>
               <input type="text" id="dish" name="dish" value="{{dish}}"><br>
               <label class="input">Serving Size:</label><br>
@@ -35,7 +30,7 @@
               <center><p class="input">Found recipe: {{recipeName}}!</p></center>
 
               <div class = "buttons">
-              <button class="button" type="submit" id="findRecipe"></button>
+              <button class="button" id="findRecipe"></button>
               </div>
             </form> 
             

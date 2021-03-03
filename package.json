@@ -6,7 +6,6 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "bootstrap": "^5.0.0-beta2",
-    "chromedriver": "^88.0.0",
     "cookie-session": "^1.4.0",
     "errorhandler": "*",
     "express": "^4.17.1",

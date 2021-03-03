@@ -52,7 +52,10 @@ exports.newrecipe = function(req, res){
     } else {
 
         res.render('newrecipe', {
-            'name': name
+            'name': name,
+            'dish': "",
+            'serving': "",
+            'optional': ""
         }); 
     }
 };

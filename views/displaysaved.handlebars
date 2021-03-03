@@ -31,10 +31,14 @@
 				<li class="instructions">{{instructions}}</li>
 			</ul>
 		
-			<div class = "d-flex justify-content-center align-items-center center" >        
-					<a href="/newrecipe">
-						<button class="button" value="NewRecipe">Edit Recipe</button>
-					</a>
+			<div class = "d-flex justify-content-center align-items-center center" >  
+				<form action="/newRecipe" method="get">
+					<input name="new" id="new" class = "hide" value="0">
+					<input name="dish" id="dish" class = "hide" value="{{dish}}">
+					<input name="serving" id="serving" class = "hide" value="{{serving}}">
+					<input name="optional" id="optional" class = "hide" value="{{optional}}">
+					<button class="button" value="NewRecipe">Edit Recipe</button>
+				</form>
 			</div>
     
   	</div>

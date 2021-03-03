@@ -2,7 +2,7 @@
  * GET home page.
  */
 
-var recipe_json = require('../recipe.json');
+// var recipe_json = require('../recipe.json');
 var saved = require('../saved.json');
 var data_file = require('../data.json');
 
@@ -23,6 +23,7 @@ exports.index = function(req, res){
     });
 };
 
+//getting Facebook account name and adding it to data_file json
 exports.name = function(req, res){
 
     var name = req.params.user;
@@ -37,18 +38,26 @@ exports.name = function(req, res){
     });
 };
 
+//renders new recipe page
 exports.newrecipe = function(req, res){
     var name = data_file.user.name;
 
-    res.render('newrecipe', {
-        'name': name,
-        'dish': recipe_json.data.dish,
-        'serving': recipe_json.data.serving,
-        'optional': recipe_json.data.optional
-        // 'pictureurl': pictureurl
-    });
+    if (req.query.new == "0") {
+        res.render('newrecipe', {
+            'name': name,
+            'dish': req.query.dish,
+            'serving': req.query.serving,
+            'optional': req.query.optional
+        });
+    } else {
+
+        res.render('newrecipe', {
+            'name': name
+        }); 
+    }
 };
 
+//renders saved recipe page
 exports.savedrecipes = function(req, res){
     var name = data_file.user.name;
     // console.log("SAVeD: " + saved.recipes[0].recipeName);
@@ -60,6 +69,8 @@ exports.savedrecipes = function(req, res){
     });
 };
 
+//after clicking on x for a specific saved recipe,
+//removes it from saved.json file and re renders saved recipes page
 exports.removerecipe = function(req, res) {
 
     // var fs = require('fs');
@@ -100,7 +111,11 @@ exports.removerecipe = function(req, res) {
 
 };
 
+//after clicking on "Save Recipe" saves info to saved.json
+//and renders saved recipes page
 exports.sendrecipe = function(req, res) {
+    var dish = req.query.dish;
+    var optional = req.query.optional;
     var recipeName = req.query.recipeName;
     var serving = req.query.serving;
     var ingredients = req.query.ingredients;
@@ -108,6 +123,8 @@ exports.sendrecipe = function(req, res) {
     var url = req.query.url;
 
     var newsavedrecipe = {
+        'dish': dish,
+        'optional': optional,
         'recipeName': recipeName,
         'serving' : serving,
         'ingredients' : ingredients,
@@ -137,8 +154,12 @@ exports.sendrecipe = function(req, res) {
     });
 }
 
+//after clicking on a saved recipe from the saved recipes page,
+//goes to view showing recipe info (without Save Recipe button)
 exports.displaysavedrecipe = function(req, res) {
     var name = data_file.user.name;
+    var dish = req.query.dish;
+    var optional = req.query.optional;
     var recipeName = req.query.recipeName;
     var serving = req.query.serving;
     var ingredients = req.query.ingredients;
@@ -146,6 +167,8 @@ exports.displaysavedrecipe = function(req, res) {
     var url = req.query.url;
 
     res.render('displaysaved', {
+        'dish': dish,
+        'optional': optional,
         'ingredients': ingredients,
         'instructions': instructions,
         'recipeName': recipeName,
@@ -155,6 +178,7 @@ exports.displaysavedrecipe = function(req, res) {
     });
 }
 
+//renders account page
 exports.account = function(req, res){
 
     var name = data_file.user.name;
@@ -176,13 +200,13 @@ exports.account = function(req, res){
 //gets url of recipe page
 exports.findrecipe = function(req, res){ 
     var spawn = require('child_process').spawn;
-    var dish = req.params.dish;
-    var optional = req.params.optional;
+    var dish = req.query.dish;
+    var optional = req.query.optional;
     console.log("dish: " + dish);
-    console.log("serving: " + req.params.serving);
+    console.log("serving: " + req.query.serving);
     console.log("optional: " + optional);
 
-    if (optional == undefined) {
+    if (optional == undefined || optional == "") {
         optional = "none";
         console.log("optional: " + optional);
     };
@@ -203,25 +227,25 @@ exports.findrecipe = function(req, res){
             console.log("Scraped URL: " + url);
         }
 
-        var recipe_data = {
-            'dish': dish,
-            'recipeName': '',
-            'url': url,
-            'optional': optional,
-            'ingredients': '',
-            'serving': req.params.serving,
-            'instructions': ''
-        };
+        // var recipe_data = {
+        //     'dish': dish,
+        //     'recipeName': '',
+        //     'url': url,
+        //     'optional': optional,
+        //     'ingredients': '',
+        //     'serving': req.query.serving,
+        //     'instructions': ''
+        // };
 
-        recipe_json.data = recipe_data;
+        // recipe_json.data = recipe_data;
 
         // res.redirect('/recipename');
 
         res.render('getrecipename', {
             'dish': dish,
             'recipeName': '',
-            'url':url,
-            'serving':req.params.serving,
+            'url': url,
+            'serving':req.query.serving,
             'optional': optional
         });
 
@@ -229,9 +253,10 @@ exports.findrecipe = function(req, res){
 
 };
 
+//gets recipe name from recipe url
 exports.findrecipename = function(req, res){ 
     var spawn = require('child_process').spawn;
-    var url = recipe_json.data.url;
+    var url = req.query.url;
 
     var recipeData;
 
@@ -248,33 +273,36 @@ exports.findrecipename = function(req, res){
             console.log("Scraped recipe name: " + recipeName);
         }
 
-        var recipe_data = {
-            'dish': recipe_json.data.dish,
-            'recipeName': recipeName,
-            'url': url,
-            'optional': recipe_json.data.optional,
-            'ingredients': '',
-            'serving': recipe_json.data.serving,
-            'instructions': ''
-        };
+        // var recipe_data = {
+        //     'dish': recipe_json.data.dish,
+        //     'recipeName': recipeName,
+        //     'url': url,
+        //     'optional': recipe_json.data.optional,
+        //     'ingredients': '',
+        //     'serving': recipe_json.data.serving,
+        //     'instructions': ''
+        // };
 
-        recipe_json.data = recipe_data;
+        // recipe_json.data = recipe_data;
+
+        // res.redirect('/getrecipe');
 
         res.render('findingrecipe', {
-            'dish': recipe_json.data.dish,
+            'dish': req.query.dish,
             'recipeName': recipeName,
-            'url':url,
-            'serving':recipe_json.data.serving,
-            'optional': recipe_json.data.optional
+            'url': url,
+            'serving':req.query.serving,
+            'optional': req.query.optional
         });
 
     });
 
 };
 
+//gets ingredients
 exports.recipe = function(req, res){ 
     var spawn = require('child_process').spawn;
-    var url = recipe_json.data.url
+    var url = req.query.url
 
     var recipeData;
 
@@ -291,33 +319,36 @@ exports.recipe = function(req, res){
             ingredients = recipeData;
         }
 
-        var recipe_data = {
-            'dish': recipe_json.data.dish,
-            'recipeName': recipe_json.data.recipeName,
-            'url': url,
-            'optional': recipe_json.data.optional,
-            'ingredients': ingredients,
-            'serving': recipe_json.data.serving,
-            'instructions': ''
-        };
+        // var recipe_data = {
+        //     'dish': recipe_json.data.dish,
+        //     'recipeName': recipe_json.data.recipeName,
+        //     'url': url,
+        //     'optional': recipe_json.data.optional,
+        //     'ingredients': ingredients,
+        //     'serving': recipe_json.data.serving,
+        //     'instructions': ''
+        // };
 
-        recipe_json.data = recipe_data;
+        // recipe_json.data = recipe_data;
 
+        // res.redirect('/getinstructions')
         res.render('loadingrecipe', {
-            'dish': recipe_json.data.dish,
-            'recipeName': recipe_json.data.recipeName,
-            'url': recipe_json.data.url,
-            'serving': recipe_json.data.serving,
-            'optional': recipe_json.data.optional
+            'dish': req.query.dish,
+            'ingredients': ingredients,
+            'recipeName': req.query.recipeName,
+            'url': req.query.url,
+            'serving': req.query.serving,
+            'optional': req.query.optional
         });
 
     });
 
 };
 
+//gets instructions and orig serving size
 exports.instructions = function(req, res){ 
     var spawn = require('child_process').spawn;
-    var url = recipe_json.data.url
+    var url = req.query.url
 
     var recipeData;
 
@@ -336,30 +367,45 @@ exports.instructions = function(req, res){
             orig_serving = recipeData.split("\n\n\n")[1];
         }
 
-        var recipe_data = {
-            'dish': recipe_json.data.dish,
-            'recipeName': recipe_json.data.recipeName,
-            'url': url,
-            'optional': recipe_json.data.optional,
-            'ingredients': recipe_json.data.ingredients,
-            'orig_serving': orig_serving,
-            'serving': recipe_json.data.serving,
-            'instructions': instructions,
-        };
+        // var recipe_data = {
+        //     'dish': recipe_json.data.dish,
+        //     'recipeName': recipe_json.data.recipeName,
+        //     'url': url,
+        //     'optional': recipe_json.data.optional,
+        //     'ingredients': recipe_json.data.ingredients,
+        //     'orig_serving': orig_serving,
+        //     'serving': recipe_json.data.serving,
+        //     'instructions': instructions,
+        // };
 
-        recipe_json.data = recipe_data;
+        // recipe_json.data = recipe_data;
 
-        res.redirect('/recipe');
+        var url = require('url');
+        res.redirect(url.format({
+            pathname: '/recipe', 
+            query: {
+                'dish': req.query.dish,
+                'recipeName': req.query.recipeName,
+                'url': req.query.url,
+                'serving': req.query.serving,
+                'optional': req.query.optional,
+                'ingredients': req.query.ingredients,
+                'instructions': instructions,
+                'orig_serving': orig_serving
+            }
+        }));
 
     });
 
 };
 
+//puts original ingredient amount & orig serving/desired serving 
+//into converter, scrapes new ingredient amounts
 exports.convertrecipe = function(req, res){ 
     var spawn = require('child_process').spawn;
-    var ingredients = recipe_json.data.ingredients;
-    var orig_serving = recipe_json.data.orig_serving;
-    var serving = recipe_json.data.serving;
+    var ingredients = req.query.ingredients;
+    var orig_serving = req.query.orig_serving;
+    var serving = req.query.serving;
 
     var recipeData;
 
@@ -378,12 +424,14 @@ exports.convertrecipe = function(req, res){
         var name = data_file.user.name;
 
         res.render('recipe', {
+            'dish': req.query.dish,
+            'optional': req.query.optional,
             'ingredients': ingredients,
-            'instructions': recipe_json.data.instructions,
-            'recipeName': recipe_json.data.recipeName,
-            'url': recipe_json.data.url,
-            'serving': recipe_json.data.serving,
-            'name':name,
+            'instructions': req.query.instructions,
+            'recipeName': req.query.recipeName,
+            'url': req.query.url,
+            'serving': req.query.serving,
+            'name': name,
         });
 
     });

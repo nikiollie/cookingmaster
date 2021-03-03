@@ -19,23 +19,28 @@
   <div class = "d-flex justify-content-center">
     <div class = "box">
           <h1 class="title">New Recipe</h1>
-          <form action="">
+          <form action="/getrecipe" method="get">
+            <input name="recipeName" id="recipeName" class = "hide" value="{{recipeName}}">
+            <input name="url" id="url" class = "hide" value="{{url}}">
+            <input name="ingredients" id="ingredients" class = "hide" value="{{ingredients}}">
+            <input name="instructions" id="instructions" class = "hide" value="{{instructions}}">
+
               <label class="input">What would you like to cook:</label><br>
-              <input type="text" id="dish" value="{{dish}}"></input><br>
+              <input type="text" id="dish" name="dish" value="{{dish}}"><br>
               <label class="input">Serving Size:</label><br>
-              <input type="number" id="serving" value="{{serving}}"><br><br>
+              <input type="number" id="serving" name="serving" value="{{serving}}"><br><br>
               <label class="input">(Optional) Any specific ingredients? If multiple, separate with comma:</label><br>
-              <input type="text" id="optional" value="{{optional}}"><br><br>
+              <input type="text" id="optional" name="optional" value="{{optional}}"><br><br>
               <!-- <input type="submit" value="Find Recipe!"> -->
+              <button class="button" type="submit" id="findRecipe"></button>
             </form> 
             
             <center><p class="input">Found recipe: {{recipeName}}!</p></center>
 
-            <div class = "buttons">
+            {{!-- <div class = "buttons">
               <a href="#">
-                <button class="button" id="findRecipe"></button>
               </a>
-            </div>
+            </div> --}}
     </div>
   </div>
   <div id="home">

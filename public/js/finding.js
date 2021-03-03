@@ -14,6 +14,6 @@ function initializePage() {
 function clickButton() {
 	document.getElementById("findRecipe").click();
     $("#findRecipe").html("Getting instructions...");
-    window.location.href = "/getrecipe";
+    // window.location.href = "/getrecipe";
 }
 

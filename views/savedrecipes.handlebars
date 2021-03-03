@@ -35,6 +35,8 @@
             <div class="recipe" id="{{recipeName}}">
                 <form action="/displaysavedrecipe" method="get">
 					{{!-- for sending info to saved recipes page  --}}
+                    <input name="dish" id="dish" class = "hide" value="{{dish}}">
+                    <input name="optional" id="optional" class = "hide" value="{{optional}}">
 					<input name="recipeName" id="recipeName" class = "hide" value="{{recipeName}}">
 					<input name="url" id="url" class = "hide" value="{{url}}">
 					<input name="ingredients" id="ingredients" class = "hide" value="{{ingredients}}">

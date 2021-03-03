@@ -202,13 +202,13 @@ exports.findrecipe = function(req, res){
     var spawn = require('child_process').spawn;
     var dish = req.params.dish;
     var optional = req.params.optional;
-    console.log("dish: " + dish);
-    console.log("serving: " + req.params.serving);
-    console.log("optional: " + optional);
+    // console.log("dish: " + dish);
+    // console.log("serving: " + req.params.serving);
+    // console.log("optional: " + optional);
 
-    if (optional == undefined || optional == "") {
+    if (optional == undefined) {
         optional = "none";
-        console.log("optional: " + optional);
+        // console.log("optional: " + optional);
     };
 
     var recipeData;
@@ -218,13 +218,13 @@ exports.findrecipe = function(req, res){
     // collect data from script
     python.stdout.on('data', function (data) {
         recipeData = data.toString();
-        console.log("Recipe data: " + recipeData);
+        // console.log("Recipe data: " + recipeData);
 
         var url = "";
 
         if (recipeData != undefined) {
             url = recipeData;
-            console.log("Scraped URL: " + url);
+            // console.log("Scraped URL: " + url);
         }
 
         // var recipe_data = {

@@ -384,20 +384,21 @@ exports.instructions = function(req, res){
 
         recipe_json.data = recipe_data;
 
-        var url = require('url');
-        res.redirect(url.format({
-            pathname: '/recipe', 
-            query: {
-                'dish': recipe_json.data.dish,
-                'recipeName': recipe_json.data.recipeName,
-                'url': recipe_json.data.url,
-                'serving': recipe_json.data.serving,
-                'optional': recipe_json.data.optional,
-                'ingredients': recipe_json.data.ingredients,
-                'instructions': instructions,
-                'orig_serving': orig_serving
-            }
-        }));
+        res.redirect('/recipe');
+        // var url = require('url');
+        // res.redirect(url.format({
+        //     pathname: '/recipe', 
+        //     query: {
+        //         'dish': recipe_json.data.dish,
+        //         'recipeName': recipe_json.data.recipeName,
+        //         'url': recipe_json.data.url,
+        //         'serving': recipe_json.data.serving,
+        //         'optional': recipe_json.data.optional,
+        //         'ingredients': recipe_json.data.ingredients,
+        //         'instructions': instructions,
+        //         'orig_serving': orig_serving
+        //     }
+        // }));
 
     });
 

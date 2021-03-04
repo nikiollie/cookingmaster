@@ -2,7 +2,7 @@
 $(document).ready(function() {
 	initializePage();
 })
-
+var check = false;
 /*
  * Function that is called when the document is ready.
  */
@@ -25,6 +25,21 @@ function findRecipe(e) {
 function callBackFn(dish, serving, optional) {
     $("#findRecipe").html("Searching...");
     document.getElementById("patient").style.display = "block";
+    console.log(check)
+    if (check) {
+        window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
+    }
+}
 
-    window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
+function validateForm() {
+  var x = document.forms["myForm"]["dish"].value;
+  var y = document.forms["myForm"]["serving"].value;
+  console.log(x)
+  if (x == "" || y == "") {
+    alert("Dish/Serving Size must be filled out");
+    check = false;
+    return false;
+  }
+  check = true;
+
 }

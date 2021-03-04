@@ -7,6 +7,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/styles.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script>
+    function validateForm() {
+  var x = document.forms["myForm"]["dish"].value;
+  console.log(x)
+  if (x == "") {
+    alert("Dish must be filled out");
+    return false;
+  }
+}
+</script>
 
 </head>
 
@@ -19,11 +29,11 @@
   <div class = "d-flex justify-content-center">
     <div class = "box">
           <h1 class="title">New Recipe</h1>
-          <form action="">
+          <form name="myForm" action="/getrecipe">
               <label class="input">What would you like to cook:</label><br>
-              <input type="text" id="dish" name="dish" value="{{dish}}"><br>
+              <input type="text" id="dish" name="dish" value="{{dish}}" required/><br>
               <label class="input">Serving Size:</label><br>
-              <input type="number" id="serving" name="serving" value="{{serving}}"><br><br>
+              <input type="number" id="serving" name="serving" value="{{serving}}" required/><br><br>
               <label class="input">(Optional) Any specific ingredients? If multiple, separate with comma:</label><br>
               <input type="text" id="optional" name="optional" value="{{optional}}"><br><br>
               <!-- <input type="submit" value="Find Recipe!"> -->
@@ -32,7 +42,7 @@
             
               <div class = "buttons">
                 <a href="#">
-                  <button class="button" id="findRecipe">Find Recipe</button>
+                  <button class="button" id="findRecipe" onclick= "validateForm()"">Find Recipe</button>
                 </a>
               </div>
 

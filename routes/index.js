@@ -10,17 +10,20 @@ exports.view = function(req, res){
 	console.log(data);
 }
 exports.login = function(req, res){
-    res.render('login');
+    res.status(200).render('login');
+    return;
+
 };
 
 exports.index = function(req, res){
 
     var name = data_file.user.name;
 
-    res.render('index', {
+    res.status(200).render('index', {
         'name': name
         // 'pictureurl': pictureurl
     });
+    return;
 };
 
 //getting Facebook account name and adding it to data_file json
@@ -32,10 +35,11 @@ exports.name = function(req, res){
     // console.log("picture url: " + pictureurl);
     data_file.user.name = name;
 
-    res.render('index', {
+    res.status(200).render('index', {
         'name': name
         // 'pictureurl': pictureurl
     });
+    return;
 };
 
 //renders new recipe page
@@ -43,20 +47,22 @@ exports.newrecipe = function(req, res){
     var name = data_file.user.name;
 
     if (req.query.new == "0") {
-        res.render('newrecipe', {
+        res.status(200).render('newrecipe', {
             'name': name,
             'dish': req.query.dish,
             'serving': req.query.serving,
             'optional': req.query.optional
         });
+        return;
     } else {
 
-        res.render('newrecipe', {
+        res.status(200).render('newrecipe', {
             'name': name,
             'dish': "",
             'serving': "",
             'optional': ""
         }); 
+        return;
     }
 };
 
@@ -64,12 +70,14 @@ exports.newrecipe = function(req, res){
 exports.savedrecipes = function(req, res){
     var name = data_file.user.name;
     // console.log("SAVeD: " + saved.recipes[0].recipeName);
-    res.render('savedrecipes', {
+    res.status(200).render('savedrecipes', {
         'name': name,
         recipes: saved.recipes
         // 'recipes': saved.recipes
         // 'pictureurl': pictureurl
     });
+    return;
+
 };
 
 //after clicking on x for a specific saved recipe,
@@ -105,12 +113,14 @@ exports.removerecipe = function(req, res) {
                 // });
     var name = data_file.user.name;
     // console.log("SAVeD: " + saved.recipes[0].recipeName);
-    res.render('savedrecipes', {
+    res.status(200).render('savedrecipes', {
         'name': name,
         recipes: saved.recipes
         // 'recipes': saved.recipes
         // 'pictureurl': pictureurl
     });    // res.end();
+    return;
+
 
 };
 
@@ -151,10 +161,11 @@ exports.sendrecipe = function(req, res) {
 
     saved.recipes.push(newsavedrecipe);
 
-    res.render('savedrecipes', {
+    res.status(200).render('savedrecipes', {
         'name': name,
         recipes: saved.recipes
     });
+    return;
 }
 
 //after clicking on a saved recipe from the saved recipes page,
@@ -169,7 +180,7 @@ exports.displaysavedrecipe = function(req, res) {
     var instructions = req.query.instructions;
     var url = req.query.url;
 
-    res.render('displaysaved', {
+    res.status(200).render('displaysaved', {
         'dish': dish,
         'optional': optional,
         'ingredients': ingredients,
@@ -179,6 +190,7 @@ exports.displaysavedrecipe = function(req, res) {
         'serving': serving,
         'name':name,
     });
+    return;
 }
 
 //renders account page
@@ -190,10 +202,11 @@ exports.account = function(req, res){
     console.log("account Name: " + name);
     // console.log("picture url: " + pictureurl);
 
-    res.render('account', {
+    res.status(200).render('account', {
         'name': name
         // 'pictureurl': pictureurl
     });
+    return;
 
 
 };
@@ -244,14 +257,14 @@ exports.findrecipe = function(req, res){
 
         // res.redirect('/recipename');
 
-        res.render('getrecipename', {
+        res.status(200).render('getrecipename', {
             'dish': dish,
             'recipeName': '',
             'url': url,
             'serving':req.params.serving,
             'optional': optional
         });
-
+        return;
 
     });
 
@@ -291,13 +304,14 @@ exports.findrecipename = function(req, res){
 
         // res.redirect('/getrecipe');
 
-        res.render('findingrecipe', {
+        res.status(200).render('findingrecipe', {
             'dish': recipe_json.data.dish,
             'recipeName': recipeName,
             'url': url,
             'serving':recipe_json.data.serving,
             'optional': recipe_json.data.optional
         });
+        return;
 
     });
 
@@ -336,7 +350,7 @@ exports.recipe = function(req, res){
         recipe_json.data = recipe_data;
 
         // res.redirect('/getinstructions')
-        res.render('loadingrecipe', {
+        res.status(200).render('loadingrecipe', {
             'dish': recipe_json.data.dish,
             'ingredients': ingredients,
             'recipeName': recipe_json.data.recipeName,
@@ -344,6 +358,7 @@ exports.recipe = function(req, res){
             'serving': recipe_json.data.serving,
             'optional': recipe_json.data.optional
         });
+        return;
 
     });
 
@@ -384,7 +399,8 @@ exports.instructions = function(req, res){
 
         recipe_json.data = recipe_data;
 
-        res.redirect('/recipe');
+        res.status(200).redirect('/recipe');
+        return;
         // var url = require('url');
         // res.redirect(url.format({
         //     pathname: '/recipe', 
@@ -428,7 +444,7 @@ exports.convertrecipe = function(req, res){
 
         var name = data_file.user.name;
 
-        res.render('recipe', {
+        res.status(200).render('recipe', {
             'dish': recipe_json.data.dish,
             'optional': recipe_json.data.optional,
             'ingredients': ingredients,
@@ -438,6 +454,7 @@ exports.convertrecipe = function(req, res){
             'serving': recipe_json.data.serving,
             'name': name,
         });
+        return;
 
     });
 

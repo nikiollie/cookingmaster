@@ -1,1 +1,10 @@
-{"acc":[{"name":"Tester","password":"T"},{"name":"A","password":"B"},{"name":"Test","password":"A"},{"name":"Test","password":"Test"}]}
+{
+    "user":
+    [
+        {
+            "userID":"",
+            "name":"",
+            "pictureurl":""
+        }
+    ]
+}

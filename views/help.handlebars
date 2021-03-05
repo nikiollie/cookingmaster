@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Cooking Master</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div id="account">
+        <a href="account">
+            <input type="image" src="/images/account.png" alt="Account" id="accountpic">
+        </a>
+    </div>
+    <div class = "d-flex justify-content-center align-items-center center">        
+        <img src="/images/main_logo.png" alt="Cooking Master" >
+        <h1 class="title">Frequently Asked Questions</h1>
+    </div>
+    <div class = "d-flex justify-content-center align-items-center center" >   
+    <script>
+
+        function toggleElement(id)
+        {
+            if(document.getElementById(id).style.display == 'none')
+            {
+                document.getElementById(id).style.display = '';
+            }
+            else
+            {
+                document.getElementById(id).style.display = 'none';
+            }
+        }
+    </script>
+    <p>
+        <ol>
+            <li><a href="javascript:toggleElement('a1')">How do I save my recipes?</a></li>
+            <div id="a1" style="display:none">
+                Once you find a recipe, click on the button that states, "Save Recipe". 
+           </div>  
+            <li><a href="javascript:toggleElement('a2')">How do I find new recipes?</a></li>
+            <div id="a2" style="display:none">
+                Click on the "HOME" icon, then click on "New Recipes".
+            </div>  
+            <li><a href="javascript:toggleElement('a3')">Where does this app get the recipes from?</a></li>
+            <div id="a3" style="display:none">
+                All of our recipes are from Allrecipes.com. It's a a food-focused online social networking service.
+            </div>  
+            <li><a href="javascript:toggleElement('a4')">How does this app do the ingredient conversions?</a></li>
+            <div id="a4" style="display:none">
+                First, we extract the ingredient amounts from the recipe found from allrecipes.com. <br>
+                Then, we put the ingredients and serving size into a recipe converter called, MyKitchencalculator.com.<br>
+                After, MyKitchencalculator.com returns the new ingredient amounts.
+            </div> 
+        </ol>
+    </p>
+   
+    
+    
+    
+        
+    </div>
+    <div id="home">
+        <a href="/index">
+            <input type="image" src="/images/home_logo.png" alt="Home">
+        </a>
+    </div>
+    <div id="question">
+        <a href="/help">
+            <input width="75px" height="75px" type="image" src="/images/question.png" alt="Question">
+        </a>
+    </div>
+
+</body>
+</html>

@@ -72,7 +72,7 @@ app.get('/accounts', accounts.addAccount);
 app.get('/createaccount', index.createaccount);
 app.get('/forgotpassword', index.forgotpassword);
 
-
+app.get('/help', index.help);
 // Example route
 // app.get('/users', user.list);
 

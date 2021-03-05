@@ -36,7 +36,9 @@ exports.savedrecipes = function(req, res){
 exports.account = function(req, res){
     res.render('account');
 };
-
+exports.help = function(req, res){
+    res.render('help');
+};
 exports.findrecipe = function(req, res){ 
     var spawn = require('child_process').spawn;
     var dish = req.params.dish;

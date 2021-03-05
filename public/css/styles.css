@@ -88,6 +88,12 @@ input#image-button{
     bottom: 0;
     left: 0;
   }
+  #question {
+    position: fixed;
+    bottom: 0;
+    right:0;
+  }
+
 
 .loginpage {
     background-image: url("/images/newloginbackgrnd.png");

@@ -265,23 +265,7 @@ exports.findrecipe = function(req, res){
 
     });
 
-    python.on('error', function(error) {
-        console.log('Python process creating error with error' + error);
 
-        var name = data_file.user.name;
-
-        console.log("Error in find recipe function");
-        return res.status(200).render('newrecipe', {
-            'name': name,
-            'dish': "",
-            'serving': "",
-            'optional': ""
-        });
-    });
-
-    python.on('close', function(code) {
-        console.log('Python process exited with code' + code);
-    });
 
 
 
@@ -331,23 +315,7 @@ exports.findrecipename = function(req, res){
 
     });
 
-    python.on('error', function(error) {
-        console.log('Python process creating error with error' + error);
 
-        var name = data_file.user.name;
-
-        console.log("Error in find recipe function");
-        return res.status(200).render('newrecipe', {
-            'name': name,
-            'dish': "",
-            'serving': "",
-            'optional': ""
-        });
-    });
-    
-    python.on('close', function(code) {
-        console.log('Python process exited with code' + code);
-    });
 
 };
 
@@ -395,23 +363,7 @@ exports.recipe = function(req, res){
 
     });
 
-    python.on('error', function(error) {
-        console.log('Python process creating error with error' + error);
 
-        var name = data_file.user.name;
-
-        console.log("Error in find recipe function");
-        return res.status(200).render('newrecipe', {
-            'name': name,
-            'dish': "",
-            'serving': "",
-            'optional': ""
-        });
-    });
-    
-    python.on('close', function(code) {
-        console.log('Python process exited with code' + code);
-    });
 
 };
 
@@ -468,23 +420,7 @@ exports.instructions = function(req, res){
 
     });
 
-    python.on('error', function(error) {
-        console.log('Python process creating error with error' + error);
 
-        var name = data_file.user.name;
-
-        console.log("Error in find recipe function");
-        return res.status(200).render('newrecipe', {
-            'name': name,
-            'dish': "",
-            'serving': "",
-            'optional': ""
-        });
-    });
-    
-    python.on('close', function(code) {
-        console.log('Python process exited with code' + code);
-    });
 
 };
 
@@ -528,22 +464,6 @@ exports.convertrecipe = function(req, res){
 
     });
 
-    python.on('error', function(error) {
-        console.log('Python process creating error with error' + error);
-
-        var name = data_file.user.name;
-
-        console.log("Error in find recipe function");
-        return res.status(200).render('newrecipe', {
-            'name': name,
-            'dish': "",
-            'serving': "",
-            'optional': ""
-        });
-    });
-    
-    python.on('close', function(code) {
-        console.log('Python process exited with code' + code);
-    });
+ 
 
 };

@@ -6,17 +6,19 @@
     padding: 0;
 }
 .swd-button {
-  
-   
 	color: white;
     display: inline-block;
-	
-
-
 }
+
 body {
     color:black;
 }
+
+div.photo img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
 input#image-button{
     background: #ccc url('pumpkin_pie.png') no-repeat top left;
     padding-left: 16px;
@@ -129,3 +131,8 @@ input#image-button{
     margin: 0;
     padding: 0;
 }
+
+.hide {
+    display: none;
+}
+

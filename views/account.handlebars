@@ -7,12 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/account.js"></script>
 
 </head>
 
 <body>
     <div id="account">
-        <a href="account">
+        <a href="/account">
             <input type="image" src="/images/account.png" alt="Account" id="accountpic">
         </a>
     </div>
@@ -24,26 +26,35 @@
             <input type="image" src="/images/home_logo.png" alt="Home">
         </a>
     </div>
+    <div class = "d-flex justify-content-center align-items-center center">
+        <p>Name: {{name}}</p>
+    </div>
+    {{!-- <p id='pictureurl'>{{pictureurl}}</p>
+    <div id="facebookPhoto" class="profile">
+        <img id="photo" class='img-responsive' src="" />
+    </div> --}}
+
+
 <!--Content shown when popup is not displayed-->
-    <form id="addAcountForm" role="form" method="get" action="/accounts">
+    {{!-- <form id="addAcountForm" role="form" method="get" action="/accounts">
         <h3>Add your account</h3>
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" class="form-control" id="name" placeholder="Name" name="name">
         </div>
         <div class="form-group">
-          <label for="description">Description:</label>
-          <input type="text" class="form-control" id="description" placeholder="Description" name="description">
+          <label for="password">Password:</label>
+          <input type="text" class="form-control" id="password" placeholder="Password" name="password">
         </div>
 <!--         <input type="submit" id="submitBtn" class="btn btn-default" value="Create Account"></input> -->
-            <a href="index">
-              <button class="button" value="NewAccount">Create Account!</button>
+            <a href="/index">
+                <button class="button" value="signin">Sign up!</button>
             </a>
     </div>
 <!--         </a> -->
-    </form>
+    </form> --}}
         <div id="home">
-        <a href="index">
+        <a href="/index">
         <input type="image" src="/images/home_logo.png" alt="Home">
         </a>
     </div>

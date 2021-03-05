@@ -85,11 +85,18 @@ input#image-button{
     right: 0px;
 }
 
+#homepic {
+    width:75px;
+    height: 90px; 
+}
 #home {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  }
+    position: relative;
+}
+#home input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
 
 .loginpage {
     background-image: url("/images/newloginbackgrnd.png");

@@ -11,6 +11,11 @@
 </head>
 
 <body>
+	<div id="home">
+		<a href="/index">
+		  <input type="image" src="/images/home_logo.png" alt="Home" id="homepic">
+		</a>
+  </div>
 	<div id="account">
         <a href="/account">
             <input type="image" src="/images/account.png" alt="Account" id="accountpic">
@@ -20,16 +25,18 @@
 
 
 			<h1 class="title" >{{recipeName}}</h1>
-			<a href="{{url}}" target="_blank">Recipe Source</a>
-			<p id="serving">Desired Serving Size: {{serving}}</p>
+			<a href="{{url}}" class="input" target="_blank">Recipe Source</a>
+			<p id="serving" class="input">Desired Serving Size: {{serving}}</p>
+			<p class="input">*Recipe rounded to nearest cooking fraction*</p>
+			<p id="ing" class="hide">{{ingredients}}</p>
+			<p id="instr" class="hide">{{instructions}}</p>
+
 			<label class="input" href="newrecipe">INGREDIENTS:</label><br>
-			<ul class="input">
-				<li class="ingredients">{{ingredients}}</li>
+			<ul class="input ingredients">
 			</ul>
 			<label class="input" href="newrecipe">INSTRUCTIONS:</label><br>
-			<ul class="input">
-				<li class="instructions">{{instructions}}</li>
-			</ul>
+			<ol class="input instructions">
+			</ol>
 		
 			<div class = "d-flex justify-content-center align-items-center center" >  
 				<form action="/newRecipe" method="get">
@@ -42,11 +49,9 @@
 			</div>
     
   	</div>
-	<div id="home">
-		<a href="/index">
-		  <input type="image" src="/images/home_logo.png" alt="Home">
-		</a>
-  </div>
+	  <br>
+	  <br>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/format.js"></script>
 </body>
 </html>

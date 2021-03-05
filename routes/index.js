@@ -135,6 +135,9 @@ exports.sendrecipe = function(req, res) {
     var instructions = req.query.instructions;
     var url = req.query.url;
 
+    console.log("SAVING: " + recipeName);
+    console.log(ingredients);
+    
     var newsavedrecipe = {
         'dish': dish,
         'optional': optional,
@@ -179,6 +182,9 @@ exports.displaysavedrecipe = function(req, res) {
     var ingredients = req.query.ingredients;
     var instructions = req.query.instructions;
     var url = req.query.url;
+
+    console.log("DISPLAYING: " + recipeName);
+    console.log(ingredients);
 
     res.status(200).render('displaysaved', {
         'dish': dish,
@@ -444,11 +450,14 @@ exports.convertrecipe = function(req, res){
 
         var name = data_file.user.name;
 
+        var ingredients = ingredients.replace(/\r\n|\r|\n/g,"<br>");
+        var instructions = (recipe_json.data.instructions).replace(/\r\n|\r|\n/g,"<br>");
+
         res.status(200).render('recipe', {
             'dish': recipe_json.data.dish,
             'optional': recipe_json.data.optional,
             'ingredients': ingredients,
-            'instructions': recipe_json.data.instructions,
+            'instructions': instructions,
             'recipeName': recipe_json.data.recipeName,
             'url': recipe_json.data.url,
             'serving': recipe_json.data.serving,

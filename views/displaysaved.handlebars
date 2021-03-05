@@ -31,25 +31,13 @@
 				<li class="instructions">{{instructions}}</li>
 			</ul>
 		
-			<div class = "d-flex justify-content-center align-items-center center" >        
+			<div class = "d-flex justify-content-center align-items-center center" >  
 				<form action="/newRecipe" method="get">
 					<input name="new" id="new" class = "hide" value="0">
 					<input name="dish" id="dish" class = "hide" value="{{dish}}">
 					<input name="serving" id="serving" class = "hide" value="{{serving}}">
 					<input name="optional" id="optional" class = "hide" value="{{optional}}">
 					<button class="button" value="NewRecipe">Edit Recipe</button>
-				</form>
-					<br>
-				<form action="/saveRecipe" method="get">
-					{{!-- for sending info to saved recipes page  --}}
-					<input name="dish" id="dish" class = "hide" value="{{dish}}">
-					<input name="optional" id="optional" class = "hide" value="{{optional}}">
-					<input name="recipeName" id="recipeName" class = "hide" value="{{recipeName}}">
-					<input name="url" id="url" class = "hide" value="{{url}}">
-					<input name="ingredients" id="ingredients" class = "hide" value="{{ingredients}}">
-					<input name="instructions" id="instructions" class = "hide" value="{{instructions}}">
-					<input name="serving" id="serving" class = "hide" value="{{serving}}">
-					<button type="submit" class="button" id="saverecipe" value="SavedRecipes">Save Recipe</button>
 				</form>
 			</div>
     

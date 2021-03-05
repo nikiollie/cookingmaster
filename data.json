@@ -1,1 +1,10 @@
-{"acc":[{"name":"a","description":"a"},{"name":"a","description":"a"},{"name":"Test","description":"Tester"},{"name":"A","description":""},{"name":"A","description":"S"},{"name":"T","description":"S"},{"name":"T","description":"S"},{"name":"H","description":"N"},{"name":"","description":""},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{"name":"","description":""},{},{},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"S"},{"name":"A","description":"B"},{"name":"T","description":"Y"},{"name":"T","description":"Y"},{"name":"A","description":"Y"},{"name":"Tester","description":"tester"}]}
+{
+    "user":
+    [
+        {
+            "userID":"",
+            "name":"",
+            "pictureurl":""
+        }
+    ]
+}

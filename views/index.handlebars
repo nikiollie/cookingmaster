@@ -13,7 +13,7 @@
 <body>
 
     <div id="account">
-        <a href="account">
+        <a href="/account">
             <input type="image" src="/images/account.png" alt="Account" id="accountpic">
         </a>
     </div>
@@ -22,11 +22,12 @@
         <h1 class="title">Cooking Master</h1>
     </div>
     <div class = "d-flex justify-content-center align-items-center center" >        
-        <a href="newrecipe">
+		<form action="/newRecipe" method="get">
+			<input name="new" id="new" class = "hide" value="1">
             <button class="button" value="NewRecipe">New Recipe</button>
-        </a>
+        </form>
         <br>
-        <a href="savedrecipes">
+        <a href="/savedrecipes">
             <button class="button" value="SavedRecipes">Saved Recipes</button>
         </a>
     </div>

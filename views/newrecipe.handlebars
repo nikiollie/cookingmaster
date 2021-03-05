@@ -29,7 +29,7 @@
   <div class = "d-flex justify-content-center">
     <div class = "box">
           <h1 class="title">New Recipe</h1>
-          <form name="myForm" action="/getrecipe">
+          <form name="myForm" action="">
               <label class="input">What would you like to cook:</label><br>
               <input type="text" id="dish" name="dish" value="{{dish}}" required/><br>
               <label class="input">Serving Size:</label><br>
@@ -42,7 +42,7 @@
             
               <div class = "buttons">
                 <a href="#">
-                  <button class="button" id="findRecipe" onclick= "validateForm()"">Find Recipe</button>
+                  <button class="button" id="findRecipe" onclick= "validateForm()">Find Recipe</button>
                 </a>
               </div>
 

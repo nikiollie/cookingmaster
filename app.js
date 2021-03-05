@@ -64,6 +64,11 @@ app.get('/getrecipe', index.recipe);
 app.get('/getinstructions', index.instructions)
 app.get('/recipe', index.convertrecipe)
 
+
+app.get('/help', index.help);
+// Example route
+// app.get('/users', user.list);
+
 //renders saved recipe pages
 app.get('/savedrecipes', index.savedrecipes);
 app.get('/saveRecipe', index.sendrecipe);

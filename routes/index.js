@@ -207,9 +207,15 @@ exports.account = function(req, res){
 
 };
 
+exports.help = function(req, res){
+    res.render('help');
+};
+
+
 //calls a python script to scrape allrecipes.com 
 //searches for dish + optional ingredients
 //gets url of recipe page
+
 exports.findrecipe = function(req, res){ 
     var spawn = require('child_process').spawn;
     var dish = req.params.dish;

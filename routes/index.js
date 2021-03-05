@@ -10,8 +10,7 @@ exports.view = function(req, res){
 	console.log(data);
 }
 exports.login = function(req, res){
-    res.status(200).render('login');
-    return;
+    return res.status(200).render('login');
 
 };
 
@@ -19,11 +18,10 @@ exports.index = function(req, res){
 
     var name = data_file.user.name;
 
-    res.status(200).render('index', {
+    return res.status(200).render('index', {
         'name': name
         // 'pictureurl': pictureurl
     });
-    return;
 };
 
 //getting Facebook account name and adding it to data_file json
@@ -35,11 +33,10 @@ exports.name = function(req, res){
     // console.log("picture url: " + pictureurl);
     data_file.user.name = name;
 
-    res.status(200).render('index', {
+    return res.status(200).render('index', {
         'name': name
         // 'pictureurl': pictureurl
     });
-    return;
 };
 
 //renders new recipe page
@@ -47,22 +44,20 @@ exports.newrecipe = function(req, res){
     var name = data_file.user.name;
 
     if (req.query.new == "0") {
-        res.status(200).render('newrecipe', {
+        return res.status(200).render('newrecipe', {
             'name': name,
             'dish': req.query.dish,
             'serving': req.query.serving,
             'optional': req.query.optional
         });
-        return;
     } else {
 
-        res.status(200).render('newrecipe', {
+        return res.status(200).render('newrecipe', {
             'name': name,
             'dish': "",
             'serving': "",
             'optional': ""
         }); 
-        return;
     }
 };
 
@@ -70,13 +65,12 @@ exports.newrecipe = function(req, res){
 exports.savedrecipes = function(req, res){
     var name = data_file.user.name;
     // console.log("SAVeD: " + saved.recipes[0].recipeName);
-    res.status(200).render('savedrecipes', {
+    return res.status(200).render('savedrecipes', {
         'name': name,
         recipes: saved.recipes
         // 'recipes': saved.recipes
         // 'pictureurl': pictureurl
     });
-    return;
 
 };
 
@@ -113,13 +107,12 @@ exports.removerecipe = function(req, res) {
                 // });
     var name = data_file.user.name;
     // console.log("SAVeD: " + saved.recipes[0].recipeName);
-    res.status(200).render('savedrecipes', {
+    return res.status(200).render('savedrecipes', {
         'name': name,
         recipes: saved.recipes
         // 'recipes': saved.recipes
         // 'pictureurl': pictureurl
     });    // res.end();
-    return;
 
 
 };
@@ -164,11 +157,10 @@ exports.sendrecipe = function(req, res) {
 
     saved.recipes.push(newsavedrecipe);
 
-    res.status(200).render('savedrecipes', {
+    return res.status(200).render('savedrecipes', {
         'name': name,
         recipes: saved.recipes
     });
-    return;
 }
 
 //after clicking on a saved recipe from the saved recipes page,
@@ -186,7 +178,7 @@ exports.displaysavedrecipe = function(req, res) {
     console.log("DISPLAYING: " + recipeName);
     console.log(ingredients);
 
-    res.status(200).render('displaysaved', {
+    return res.status(200).render('displaysaved', {
         'dish': dish,
         'optional': optional,
         'ingredients': ingredients,
@@ -196,7 +188,6 @@ exports.displaysavedrecipe = function(req, res) {
         'serving': serving,
         'name':name,
     });
-    return;
 }
 
 //renders account page
@@ -208,11 +199,10 @@ exports.account = function(req, res){
     console.log("account Name: " + name);
     // console.log("picture url: " + pictureurl);
 
-    res.status(200).render('account', {
+    return res.status(200).render('account', {
         'name': name
         // 'pictureurl': pictureurl
     });
-    return;
 
 
 };
@@ -234,6 +224,8 @@ exports.findrecipe = function(req, res){
     console.log("dish: " + dish);
     console.log("serving: " + req.params.serving);
     console.log("optional: " + optional);
+
+    var recipeData;
 
     // spawn new child process to call the python script
     const python = spawn('python', ['getrecipe.py', dish, optional]);
@@ -263,16 +255,35 @@ exports.findrecipe = function(req, res){
 
         // res.redirect('/recipename');
 
-        res.status(200).render('getrecipename', {
+        return res.status(200).render('getrecipename', {
             'dish': dish,
             'recipeName': '',
             'url': url,
             'serving':req.params.serving,
             'optional': optional
         });
-        return;
 
     });
+
+    python.on('error', function(error) {
+        console.log(`Python process creating error with error ${error}`);
+
+        var name = data_file.user.name;
+
+        console.log("Error in find recipe function");
+        return res.status(200).render('newrecipe', {
+            'name': name,
+            'dish': "",
+            'serving': "",
+            'optional': ""
+        });
+    });
+
+    python.on('close', function(code) {
+        console.log(`Python process exited with code ${code}`);
+    });
+
+
 
 };
 
@@ -310,15 +321,32 @@ exports.findrecipename = function(req, res){
 
         // res.redirect('/getrecipe');
 
-        res.status(200).render('findingrecipe', {
+        return res.status(200).render('findingrecipe', {
             'dish': recipe_json.data.dish,
             'recipeName': recipeName,
             'url': url,
             'serving':recipe_json.data.serving,
             'optional': recipe_json.data.optional
         });
-        return;
 
+    });
+
+    python.on('error', function(error) {
+        console.log(`Python process creating error with error ${error}`);
+
+        var name = data_file.user.name;
+
+        console.log("Error in find recipe function");
+        return res.status(200).render('newrecipe', {
+            'name': name,
+            'dish': "",
+            'serving': "",
+            'optional': ""
+        });
+    });
+    
+    python.on('close', function(code) {
+        console.log(`Python process exited with code ${code}`);
     });
 
 };
@@ -356,7 +384,7 @@ exports.recipe = function(req, res){
         recipe_json.data = recipe_data;
 
         // res.redirect('/getinstructions')
-        res.status(200).render('loadingrecipe', {
+        return res.status(200).render('loadingrecipe', {
             'dish': recipe_json.data.dish,
             'ingredients': ingredients,
             'recipeName': recipe_json.data.recipeName,
@@ -364,8 +392,25 @@ exports.recipe = function(req, res){
             'serving': recipe_json.data.serving,
             'optional': recipe_json.data.optional
         });
-        return;
 
+    });
+
+    python.on('error', function(error) {
+        console.log(`Python process creating error with error ${error}`);
+
+        var name = data_file.user.name;
+
+        console.log("Error in find recipe function");
+        return res.status(200).render('newrecipe', {
+            'name': name,
+            'dish': "",
+            'serving': "",
+            'optional': ""
+        });
+    });
+    
+    python.on('close', function(code) {
+        console.log(`Python process exited with code ${code}`);
     });
 
 };
@@ -405,8 +450,7 @@ exports.instructions = function(req, res){
 
         recipe_json.data = recipe_data;
 
-        res.status(200).redirect('/recipe');
-        return;
+        return res.status(200).redirect('/recipe');
         // var url = require('url');
         // res.redirect(url.format({
         //     pathname: '/recipe', 
@@ -422,6 +466,24 @@ exports.instructions = function(req, res){
         //     }
         // }));
 
+    });
+
+    python.on('error', function(error) {
+        console.log(`Python process creating error with error ${error}`);
+
+        var name = data_file.user.name;
+
+        console.log("Error in find recipe function");
+        return res.status(200).render('newrecipe', {
+            'name': name,
+            'dish': "",
+            'serving': "",
+            'optional': ""
+        });
+    });
+    
+    python.on('close', function(code) {
+        console.log(`Python process exited with code ${code}`);
     });
 
 };
@@ -453,7 +515,7 @@ exports.convertrecipe = function(req, res){
         var ingredients = ingredients.replace(/\r\n|\r|\n/g,"<br>");
         var instructions = (recipe_json.data.instructions).replace(/\r\n|\r|\n/g,"<br>");
 
-        res.status(200).render('recipe', {
+        return res.status(200).render('recipe', {
             'dish': recipe_json.data.dish,
             'optional': recipe_json.data.optional,
             'ingredients': ingredients,
@@ -463,8 +525,25 @@ exports.convertrecipe = function(req, res){
             'serving': recipe_json.data.serving,
             'name': name,
         });
-        return;
 
+    });
+
+    python.on('error', function(error) {
+        console.log(`Python process creating error with error ${error}`);
+
+        var name = data_file.user.name;
+
+        console.log("Error in find recipe function");
+        return res.status(200).render('newrecipe', {
+            'name': name,
+            'dish': "",
+            'serving': "",
+            'optional': ""
+        });
+    });
+    
+    python.on('close', function(code) {
+        console.log(`Python process exited with code ${code}`);
     });
 
 };

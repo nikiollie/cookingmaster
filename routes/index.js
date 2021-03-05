@@ -266,7 +266,7 @@ exports.findrecipe = function(req, res){
     });
 
     python.on('error', function(error) {
-        console.log('Python process creating error with error ${error}');
+        console.log('Python process creating error with error' + error);
 
         var name = data_file.user.name;
 
@@ -280,7 +280,7 @@ exports.findrecipe = function(req, res){
     });
 
     python.on('close', function(code) {
-        console.log('Python process exited with code ${code}');
+        console.log('Python process exited with code' + code);
     });
 
 
@@ -332,7 +332,7 @@ exports.findrecipename = function(req, res){
     });
 
     python.on('error', function(error) {
-        console.log('Python process creating error with error ${error}');
+        console.log('Python process creating error with error' + error);
 
         var name = data_file.user.name;
 
@@ -346,7 +346,7 @@ exports.findrecipename = function(req, res){
     });
     
     python.on('close', function(code) {
-        console.log('Python process exited with code ${code}');
+        console.log('Python process exited with code' + code);
     });
 
 };
@@ -396,7 +396,7 @@ exports.recipe = function(req, res){
     });
 
     python.on('error', function(error) {
-        console.log('Python process creating error with error ${error}');
+        console.log('Python process creating error with error' + error);
 
         var name = data_file.user.name;
 
@@ -410,7 +410,7 @@ exports.recipe = function(req, res){
     });
     
     python.on('close', function(code) {
-        console.log('Python process exited with code ${code}');
+        console.log('Python process exited with code' + code);
     });
 
 };
@@ -469,7 +469,7 @@ exports.instructions = function(req, res){
     });
 
     python.on('error', function(error) {
-        console.log('Python process creating error with error ${error}');
+        console.log('Python process creating error with error' + error);
 
         var name = data_file.user.name;
 
@@ -483,7 +483,7 @@ exports.instructions = function(req, res){
     });
     
     python.on('close', function(code) {
-        console.log('Python process exited with code ${code}');
+        console.log('Python process exited with code' + code);
     });
 
 };
@@ -529,7 +529,7 @@ exports.convertrecipe = function(req, res){
     });
 
     python.on('error', function(error) {
-        console.log('Python process creating error with error ${error}');
+        console.log('Python process creating error with error' + error);
 
         var name = data_file.user.name;
 
@@ -543,7 +543,7 @@ exports.convertrecipe = function(req, res){
     });
     
     python.on('close', function(code) {
-        console.log('Python process exited with code ${code}');
+        console.log('Python process exited with code' + code);
     });
 
 };

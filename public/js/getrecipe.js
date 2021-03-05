@@ -23,11 +23,11 @@ function findRecipe(e) {
 }
 
 function callBackFn(dish, serving, optional) {
-    $("#findRecipe").html("Searching...");
-    document.getElementById("patient").style.display = "block";
     console.log(check)
     if (check) {
-        window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
+      $("#findRecipe").html("Searching...");
+      document.getElementById("patient").style.display = "block";
+      window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
     }
 }
 

@@ -230,16 +230,30 @@ exports.findrecipe = function(req, res){
     console.log("serving: " + req.params.serving);
     console.log("optional: " + optional);
 
-    var recipe_data = {
-        'dish': dish,
-        'recipeName': recipe_json.data[0].recipeName,
-        'url': recipe_json.data[0].url,
-        'optional': optional,
-        'ingredients': recipe_json.data[0].ingredients,
-        'serving': req.params.serving,
-        'orig_serving': recipe_json.data[0].orig_serving,
-        'instructions': recipe_json.data[0].instructions
-    };
+    var recipe_data = {};
+    if (recipe_json.data[0] != undefined) {
+        recipe_data = {
+            'dish': dish,
+            'recipeName': recipe_json.data[0].recipeName,
+            'url': recipe_json.data[0].url,
+            'optional': optional,
+            'ingredients': recipe_json.data[0].ingredients,
+            'serving': req.params.serving,
+            'orig_serving': recipe_json.data[0].orig_serving,
+            'instructions': recipe_json.data[0].instructions
+        }
+    } else {
+        recipe_data = {
+            'dish': dish,
+            'recipeName': recipe_json.data.recipeName,
+            'url': recipe_json.data.url,
+            'optional': optional,
+            'ingredients': recipe_json.data.ingredients,
+            'serving': req.params.serving,
+            'orig_serving': recipe_json.data.orig_serving,
+            'instructions': recipe_json.data.instructions
+        }
+    }
 
     recipe_json.data = recipe_data;
 
@@ -403,7 +417,6 @@ exports.convertrecipe = function(req, res){
 
     var recipeData;
 
-    console.log("before: " + ingredients);
 
     // spawn new child process to call the python script
     const python = spawn('python', ['conversion.py', ingredients, orig_serving, serving]);
@@ -415,7 +428,6 @@ exports.convertrecipe = function(req, res){
 
         if (recipeData != undefined) {
             ingredients = recipeData;
-            console.log("output: " + ingredients);
         }
 
         var name = data_file.user.name;

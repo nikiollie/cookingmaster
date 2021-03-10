@@ -25,7 +25,7 @@ function findRecipe(e) {
 function callBackFn(dish, serving, optional) {
     console.log(check)
     if (check) {
-      $("#findRecipe").html("Searching...");
+      $("#findRecipe").html("Getting ingredients...");
       document.getElementById("patient").style.display = "block";
       window.location.href = "/dishname/" + dish + "/serving/" + serving + "/optional/" + optional;
     }

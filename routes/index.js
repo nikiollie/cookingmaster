@@ -217,7 +217,6 @@ exports.help = function(req, res){
 //gets url of recipe page
 
 exports.findrecipe = function(req, res){ 
-    var spawn = require('child_process').spawn;
     var dish = req.params.dish;
     var optional = req.params.optional;
 
@@ -231,50 +230,20 @@ exports.findrecipe = function(req, res){
     console.log("serving: " + req.params.serving);
     console.log("optional: " + optional);
 
-    var recipeData;
+    var recipe_data = {
+        'dish': dish,
+        'recipeName': recipe_json.data[0].recipeName,
+        'url': recipe_json.data[0].url,
+        'optional': optional,
+        'ingredients': recipe_json.data[0].ingredients,
+        'serving': req.params.serving,
+        'orig_serving': recipe_json.data[0].orig_serving,
+        'instructions': recipe_json.data[0].instructions
+    };
 
-    // spawn new child process to call the python script
-    const python = spawn('python', ['getrecipe.py', dish, optional]);
-    // collect data from script
-    python.stdout.on('data', function (data) {
-        recipeData = data.toString();
-        // console.log("Recipe data: " + recipeData);
+    recipe_json.data = recipe_data;
 
-        var url = "";
-
-        if (recipeData != undefined) {
-            url = recipeData;
-            // console.log("Scraped URL: " + url);
-        }
-
-        var recipe_data = {
-            'dish': dish,
-            'recipeName': '',
-            'url': url,
-            'optional': optional,
-            'ingredients': '',
-            'serving': req.params.serving,
-            'instructions': ''
-        };
-
-        recipe_json.data = recipe_data;
-
-        // res.redirect('/recipename');
-
-        return res.status(200).render('getrecipename', {
-            'dish': dish,
-            'recipeName': '',
-            'url': url,
-            'serving':req.params.serving,
-            'optional': optional
-        });
-
-    });
-
-
-
-
-
+    return res.status(200).redirect('/recipe');
 };
 
 //gets recipe name from recipe url
@@ -343,29 +312,23 @@ exports.recipe = function(req, res){
         if (recipeData != undefined) {
             console.log("Getting ingredients...");
             ingredients = recipeData;
+            console.log("INGR: " + ingredients);
         }
 
         var recipe_data = {
             'dish': recipe_json.data.dish,
             'recipeName': recipe_json.data.recipeName,
-            'url': url,
+            'url': recipe_json.data.url,
             'optional': recipe_json.data.optional,
             'ingredients': ingredients,
             'serving': recipe_json.data.serving,
-            'instructions': ''
+            'orig_serving': recipe_json.data.orig_serving,
+            'instructions': recipe_json.data.instructions
         };
 
         recipe_json.data = recipe_data;
 
-        // res.redirect('/getinstructions')
-        return res.status(200).render('loadingrecipe', {
-            'dish': recipe_json.data.dish,
-            'ingredients': ingredients,
-            'recipeName': recipe_json.data.recipeName,
-            'url': recipe_json.data.url,
-            'serving': recipe_json.data.serving,
-            'optional': recipe_json.data.optional
-        });
+        return res.status(200).redirect('/recipe');
 
     });
 
@@ -440,6 +403,8 @@ exports.convertrecipe = function(req, res){
 
     var recipeData;
 
+    console.log("before: " + ingredients);
+
     // spawn new child process to call the python script
     const python = spawn('python', ['conversion.py', ingredients, orig_serving, serving]);
     // collect data from script
@@ -450,6 +415,7 @@ exports.convertrecipe = function(req, res){
 
         if (recipeData != undefined) {
             ingredients = recipeData;
+            console.log("output: " + ingredients);
         }
 
         var name = data_file.user.name;

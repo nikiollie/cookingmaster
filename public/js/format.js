@@ -27,7 +27,7 @@ function reformatInstructions() {
   
     var instructions = $("#instr").text();
     instructions = instructions.split("<br>");
-    for (var i = 1; i < instructions.length; i=i+2) {
+    for (var i = 0; i < instructions.length; i++) {
         $(".instructions").append("<li>" + instructions[i] + "</li>");
     }
 

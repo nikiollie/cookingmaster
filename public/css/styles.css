@@ -10,8 +10,24 @@
     display: inline-block;
 }
 
+#transparent{
+    mix-blend-mode: multiply;
+}
+
+
 body {
     color:black;
+    background-color: #77cef3;
+background-image: linear-gradient(160deg, #77cef3 0%, #77cef3 100%);
+
+
+
+
+
+
+  
+
+
 }
 
 div.photo img{
@@ -40,7 +56,8 @@ input#image-button{
 }
 
 .title {
-    font-family: 'Satisfy';
+    font-family: 'Helvetica';
+    font-weight: bold;
 }
 
 .center {
@@ -48,11 +65,20 @@ input#image-button{
   }
 
 .input {
-    font-family: 'Patrick Hand'; 
+    font-family: 'Helvetica';
+    font-weight: bold;
 }
 
+div, li{
+    font-family: 'Helvetica';
+    font-weight: bold;
+
+}
+
+
 .button {
-    font-family: 'Patrick Hand';
+    font-family: 'Helvetica';
+    font-weight: bold;
     border-radius: 8px;
     background-color: white;
     color: black;
@@ -86,10 +112,18 @@ input#image-button{
 }
 
 #home {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
   }
+  #homepic {
+    width:55px;
+    height: 70px; 
+}
+
+#home input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
   #question {
     position: fixed;
     bottom: 0;
@@ -98,7 +132,9 @@ input#image-button{
 
 
 .loginpage {
-    background-image: url("/images/newloginbackgrnd.png");
+    background-color: #77cef3;
+    background-image: linear-gradient(160deg, #77cef3 0%, #77cef3 100%);
+    
     background-repeat: no-repeat;
     background-size: 100% 115%;
     width: 100%;

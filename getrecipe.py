@@ -23,23 +23,11 @@ chrome_options.add_argument("--no-sandbox")
 def findRecipe(dish, optional):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-    dish = dish.replace(" ", "%20")
-    if optional != "none":
-        optional = optional.split(",")
-        optionalStr = ""
-        for index, i in enumerate(optional):
-            i = i.replace(" ", "%20")
-            optionalStr += i
-            if len(optional) > 1 and index < len(optional)-1:
-                optionalStr += ","
-        link = "https://www.allrecipes.com/search/results/?wt=" + dish + "&ingIncl=" + optionalStr + "&sort=re"
-        driver.get(link)
-    else:
-        link = "https://www.allrecipes.com/search/results/?sort=re&wt=" + dish
-        driver.get(link)
+    link = "https://www.allrecipes.com/recipe/7565/too-much-chocolate-cake/"
+    driver.get(link)
 
 
-    driver.find_element_by_id("fixedGridSection").find_element_by_xpath(".//article[@class='fixed-recipe-card']").click()
+    # driver.find_element_by_id("fixedGridSection").find_element_by_xpath(".//article[@class='fixed-recipe-card']").click()
 
     url = driver.current_url
 

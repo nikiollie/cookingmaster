@@ -18,7 +18,7 @@
     <br>
     <br>
     <div class = "d-flex justify-content-center align-items-center">
-        <img class="loginLogo" src="/images/main_logo.png" alt="Cooking Master" ><h5 class="title loginTitle">Cooking Master</h5>
+        <img class="loginLogo" src="/images/main_logo.png" alt="Cooking Master" ><h3 class="title loginTitle">Cooking Master</h3>
     </div>
 
     <div class = "d-flex justify-content-center align-items-center center">
@@ -28,11 +28,11 @@
     <br>
     <div class="d-flex justify-content-center align-items-center center">
         <div class="boxed d-flex justify-content-center align-items-center center">
-			<p id="name"></p>
+			<p id="name" class="bold"></p>
             {{!-- <a href=""> --}}
             <button class="button" id="signin" value="signin">Get Cooking!</button>
             {{!-- </a> --}}
-			<p class="facebookLogin">
+			<p class="facebookLogin bold">
 				Please login through Facebook <br>
 				<center><fb:login-button scope="public_profile,email" class="fbloginbutton" onlogin="checkLoginState();">
 				</fb:login-button></center>
@@ -41,16 +41,7 @@
             <div id="facebookPhoto" class="profile">
                 <img id="photo" class='img-responsive' src="" />
             </div>
-            {{!-- <form action="">
-                <label>Email:</label><br>
-                <input type="text" id="username"><br><br>
-                <label>Password:</label><br>
-                <input type="text" id="password"><br><br>    
-            </form>   
 
-            <br>
-            <a href="/createaccount">Create account</a>
-            <a href="/forgotpassword">Forgot password?</a> --}}
         </div>
     </div>
 

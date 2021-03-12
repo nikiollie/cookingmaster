@@ -11,25 +11,42 @@
 </head>
 
 <body>
-	<div id="account">
-        <a href="/account">
-            <input type="image" src="/images/account.png" alt="Account" id="accountpic">
-        </a>
-  	</div>
+    <div class="container" id="container">
+        <div class='item'>
+          <div id="home">
+              <a href="/index">
+                <input id="transparent" width="80" height="70" type="image" src="/images/home_logo.png" alt="Home">
+              </a>
+          </div>
+        </div>
+        <div class='item push'>
+            <div id="account">
+                <a href="/account">
+                    <input type="image" src="/images/account.png" alt="Account" id="accountpic">
+                </a>
+            </div>
+        </div>
+    </div>
+	<br>
+    <br>
 	<div class = "d-flex justify-content-center align-items-center center">
-
+			<div class = "d-flex justify-content-center align-items-center center">        
+        		<img width="125" height="100" src="/images/chocolatecake.png" alt="Recipe Image" >
+			</div>
 
 			<h1 class="title" >{{recipeName}}</h1>
-			<a href="{{url}}" target="_blank">Recipe Source</a>
-			<p id="serving">Desired Serving Size: {{serving}}</p>
-			<label class="input" href="newrecipe">INGREDIENTS:</label><br>
-			<ul class="input">
-				<li class="ingredients">{{ingredients}}</li>
+			<a href="{{url}}" class="input" target="_blank">Recipe Source</a>
+			<p id="serving" class="input">Desired Serving Size: {{serving}}</p>
+			<p id="ing" class="hide">{{ingredients}}</p>
+			<p id="instr" class="hide">{{instructions}}</p>
+
+			<label class="input" href="newrecipe">INGREDIENTS:</label>
+			<p class="input">*Recipe rounded to nearest cooking fraction*</p>
+			<ul class="input ingredients">
 			</ul>
 			<label class="input" href="newrecipe">INSTRUCTIONS:</label><br>
-			<ul class="input">
-				<li class="instructions">{{instructions}}</li>
-			</ul>
+			<ol class="input instructions">
+			</ol>
 		
 			<div class = "d-flex justify-content-center align-items-center center" >        
 				<form action="/newRecipe" method="get">
@@ -54,16 +71,16 @@
 			</div>
     
   	</div>
-	<div id="home">
-		<a href="/index">
-		  <input type="image" src="/images/home_logo.png" alt="Home">
-		</a>
-  </div>
+
   <div id="question">
         <a href="/help">
             <input width="75px" height="75px" type="image" src="/images/question.png" alt="Question">
         </a>
     </div>
+	<br>
+	  <br>
+
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/format.js"></script>
 </body>
 </html>

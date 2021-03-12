@@ -11,14 +11,27 @@
 </head>
 
 <body>
-
-    <div id="account">
-        <a href="account">
-            <input type="image" src="/images/account.png" alt="Account" id="accountpic">
-        </a>
+    <div class="container" id="container">
+        <div class='item'>
+          <div id="home">
+              <a href="/index">
+                <input id="transparent" width="80" height="70" type="image" src="/images/home_logo.png" alt="Home">
+              </a>
+          </div>
+        </div>
+        <div class='item push'>
+            <div id="account">
+                <a href="/account">
+                    <input type="image" src="/images/account.png" alt="Account" id="accountpic">
+                </a>
+            </div>
+        </div>
     </div>
+    
+    <br>
+    <br>
     <div class = "d-flex justify-content-center align-items-center center">        
-        <img src="/images/main_logo.png" alt="Cooking Master" >
+        <img  width="60" height="100" src="/images/main_logo.png" alt="Cooking Master" >
         <h1 class="title">Frequently Asked Questions</h1>
     </div>
     <div class = "d-flex justify-content-center align-items-center center" >   
@@ -42,7 +55,7 @@
             <div id="a1" style="display:none">
                 Once you find a recipe, click on the button that states, "Save Recipe". 
            </div>  
-            <li><a href="javascript:toggleElement('a2')">How do I find new recipes?</a></li>
+            <li ><a href="javascript:toggleElement('a2')">How do I find new recipes?</a></li>
             <div id="a2" style="display:none">
                 Click on the "HOME" icon, then click on "New Recipes".
             </div>  
@@ -60,14 +73,7 @@
     </p>
    
     
-    
-    
         
-    </div>
-    <div id="home">
-        <a href="/index">
-            <input type="image" src="/images/home_logo.png" alt="Home">
-        </a>
     </div>
     <div id="question">
         <a href="/help">

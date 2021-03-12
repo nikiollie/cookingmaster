@@ -44,9 +44,9 @@
     <div class = "box">
           <h1 class="title">New Recipe</h1>
           <form name="myForm" action="">
-              <label class="input">What would you like to cook:</label><br>
+              <span class="required">*</span><label class="input">What would you like to cook:</label><br>
               <input type="text" id="dish" name="dish" value="{{dish}}" required/><br>
-              <label class="input">Serving Size:</label><br>
+              <span class="required">*</span><label class="input">Serving Size:</label><br>
               <input type="number" id="serving" name="serving" value="{{serving}}" required/><br><br>
               <label class="input">(Optional) Any specific ingredients? If multiple, separate with comma:</label><br>
               <input type="text" id="optional" name="optional" value="{{optional}}"><br><br>

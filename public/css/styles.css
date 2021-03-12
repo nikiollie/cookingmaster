@@ -66,7 +66,7 @@ div, .input {
 
 label {
     font-family: 'Patrick Hand';
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 li{
@@ -181,4 +181,9 @@ li{
    padding-bottom: 10px;
 /*  background-color: rgba(111,41,97,.3);
   border: 2px solid rgba(111,41,97,.5);*/
+}
+
+.required
+{
+    color: red;
 }

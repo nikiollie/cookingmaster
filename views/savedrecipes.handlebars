@@ -14,17 +14,25 @@
 </head>
 
 <body>
-    <div id="home">
-        <a href="/index">
-            <input id="transparent" width="80" height="70" type="image" src="/images/home_logo.png" alt="Home">
-        </a>
+    <div class="container" id="container">
+        <div class='item'>
+          <div id="home">
+              <a href="/index">
+                <input id="transparent" width="80" height="70" type="image" src="/images/home_logo.png" alt="Home">
+              </a>
+          </div>
+        </div>
+        <div class='item push'>
+            <div id="account">
+                <a href="/account">
+                    <input type="image" src="/images/account.png" alt="Account" id="accountpic">
+                </a>
+            </div>
+        </div>
     </div>
-    <div id="account">
-        <a href="/account">
-            <input type="image" src="/images/account.png" alt="Account" id="accountpic">
-        </a>
-    </div>
-   
+    
+    <br>
+    <br>
     <div class = "d-flex justify-content-center align-items-center center">        
         <h1 class="title">Saved Recipes</h1>
        
@@ -51,14 +59,16 @@
 					<input name="ingredients" id="ingredients" class = "hide" value="{{ingredients}}">
 					<input name="instructions" id="instructions" class = "hide" value="{{instructions}}">
 					<input name="serving" id="serving" class = "hide" value="{{serving}}">
-                    <button type="submit" class="button">{{recipeName}}</button>
+                    <button type="submit" class="button">
+                        {{recipeName}}, Serving: {{serving}}
+                    </button>
                     <button id="remove" class="button">X</button>
 				</form>
             </div>
 		    {{/each}}
 
     </div>
-  
+
     <div id="question">
         <a href="/help">
             <input width="75px" height="75px" type="image" src="/images/question.png" alt="Question">

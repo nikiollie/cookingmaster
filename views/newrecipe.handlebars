@@ -21,16 +21,25 @@
 </head>
 
 <body>
-  <div id="home">
-        <a href="/index">
-            <input id="transparent" width="80" height="70" type="image" src="/images/home_logo.png" alt="Home">
-        </a>
+    <div class="container" id="container">
+        <div class='item'>
+          <div id="home">
+              <a href="/index">
+                <input id="transparent" width="80" height="70" type="image" src="/images/home_logo.png" alt="Home">
+              </a>
+          </div>
+        </div>
+        <div class='item push'>
+            <div id="account">
+                <a href="/account">
+                    <input type="image" src="/images/account.png" alt="Account" id="accountpic">
+                </a>
+            </div>
+        </div>
     </div>
-  <div id="account">
-        <a href="/account">
-            <input type="image" src="/images/account.png" alt="Account" id="accountpic">
-        </a>
-  </div>
+    
+    <br>
+    <br>
   <div class = "d-flex justify-content-center">
     <div class = "box">
           <h1 class="title">New Recipe</h1>
@@ -53,7 +62,7 @@
 
     </div>
   </div>
-  
+
   
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="js/getrecipe.js"></script>

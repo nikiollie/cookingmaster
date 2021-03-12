@@ -9,6 +9,8 @@ $(document).ready(function() {
  */
 function initializePage() {
     clickButton();
+    $('#findRecipe').prop("disabled", true);
+
 }
 
 function clickButton() {

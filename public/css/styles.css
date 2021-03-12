@@ -47,28 +47,35 @@ input#image-button{
 }
 
 .title {
-    font-family: 'Helvetica';
-    font-weight: bold;
+    font-family: 'Patrick Hand';
+    /* font-weight: bold; */
 }
 
 .center {
     flex-direction: column;
   }
 
-.input {
-    font-family: 'Helvetica';
+div, .input {
+    font-family: 'Patrick Hand';
+}
+
+.bold {
+    font-family: 'Patrick Hand';
     font-weight: bold;
 }
 
-div, li{
-    font-family: 'Helvetica';
+label {
+    font-family: 'Patrick Hand';
     font-weight: bold;
+}
 
+li{
+    font-family: 'Patrick Hand';
 }
 
 
 .button {
-    font-family: 'Helvetica';
+    font-family: 'Patrick Hand';
     font-weight: bold;
     border-radius: 8px;
     background-color: white;
